@@ -23,6 +23,8 @@ jobs:
         run: pip install -r requirements-fetch.txt
 
       - name: Fetch trends
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: python scripts/fetch_trends.py
 
       - name: Commit refreshed data

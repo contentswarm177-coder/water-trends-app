@@ -5,14 +5,15 @@ water quality topics (contaminants, filtration, water context).
 
 ## Architecture
 
-Google Trends rate-limits aggressively on shared IPs like Streamlit Cloud's.
-To sidestep that, the dashboard reads from a **committed data snapshot** that
-is refreshed daily by GitHub Actions:
+Google Trends has no official API and the community pytrends scraper is
+rate-limited into oblivion in 2026. We use **SerpApi's Google Trends engine**
+to fetch data via a daily GitHub Actions workflow that commits the snapshot
+back to the repo:
 
 ```
 GitHub Actions (cron 06:00 UTC)
       │
-      │ pytrends fetch
+      │ SerpApi Google Trends (using SERPAPI_KEY secret)
       ▼
   data/trends.json  ──►  commit to main
       │
@@ -20,13 +21,15 @@ GitHub Actions (cron 06:00 UTC)
 Streamlit Cloud (auto-redeploys on push) reads the JSON
 ```
 
+The SerpApi key is stored as the `SERPAPI_KEY` repository secret.
+
 Files:
 - `config.py` — shared constants (topic list, timeframes)
 - `app.py` — Streamlit dashboard, reads `data/trends.json`
-- `scripts/fetch_trends.py` — pytrends runner, writes `data/trends.json`
+- `scripts/fetch_trends.py` — SerpApi runner, writes `data/trends.json`
 - `.github/workflows/refresh-trends.yml` — daily cron + manual dispatch
-- `requirements.txt` — runtime deps for Streamlit Cloud (no pytrends)
-- `requirements-fetch.txt` — deps for the fetch job
+- `requirements.txt` — runtime deps for Streamlit Cloud
+- `requirements-fetch.txt` — deps for the fetch job (requests + pandas)
 
 ## Topics tracked
 
@@ -57,7 +60,10 @@ Opens at http://localhost:8501.
 
 ## Refresh data locally (optional)
 
+Requires a SerpApi key exported in your shell:
+
 ```bash
+export SERPAPI_KEY=your_key_here
 source .venv/bin/activate
 pip install -r requirements-fetch.txt
 python scripts/fetch_trends.py
@@ -76,5 +82,6 @@ Go to the repo → **Actions** tab → **Refresh Google Trends data** →
   *shape* and *timing* rather than absolute magnitude. If true
   cross-comparison matters, we can add anchor-based normalization as a
   follow-up.
-- **pytrends reliability**: GitHub Actions runners rotate IPs, so rate-limit
-  hits are rare but possible. If a refresh fails, re-run the workflow.
+- **SerpApi credits**: each workflow run uses ~16 credits (4 timeframes × 4
+  batches). Monthly cron usage is ~480 credits. The Developer plan (5k/mo) has
+  plenty of headroom for manual re-runs.
