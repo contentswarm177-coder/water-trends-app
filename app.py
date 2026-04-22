@@ -122,6 +122,23 @@ st.set_page_config(
     page_icon="💧",
 )
 
+st.markdown(
+    """
+    <style>
+    button[data-baseweb="tab"] {
+        font-size: 1.3rem !important;
+        padding-top: 14px !important;
+        padding-bottom: 14px !important;
+    }
+    button[data-baseweb="tab"] p {
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 trends = load_json(str(TRENDS_FILE))
 youtube = load_json(str(YOUTUBE_FILE))
 # Prefer scored news if available; fall back to raw mentions
