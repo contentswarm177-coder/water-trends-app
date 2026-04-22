@@ -92,23 +92,15 @@ def normalize_article(raw: dict) -> dict | None:
     }
 
 
-def is_relevant(article: dict, keywords: list[str]) -> list[str]:
-    """Keep only keywords that appear in the title (case-insensitive)."""
-    title = (article.get("title") or "").lower()
-    return [kw for kw in keywords if kw.lower() in title]
-
-
 def main() -> int:
     print(f"Searching {len(ALL_TOPICS)} keywords on GDELT…", flush=True)
 
     by_id: dict[str, dict] = {}
-    by_keyword_raw_count: dict[str, int] = {}
 
     for keyword in ALL_TOPICS:
         print(f"  '{keyword}'…", end="", flush=True)
         raw_articles = search_keyword(keyword)
         normalized = [a for a in (normalize_article(r) for r in raw_articles) if a]
-        by_keyword_raw_count[keyword] = len(normalized)
         for art in normalized:
             if art["id"] in by_id:
                 if keyword not in by_id[art["id"]]["matched_keywords"]:
@@ -119,40 +111,33 @@ def main() -> int:
         print(f" {len(normalized)} articles", flush=True)
         time.sleep(KEYWORD_DELAY_SEC)
 
-    raw_unique = len(by_id)
-    relevant: list[dict] = []
-    for art in by_id.values():
-        valid = is_relevant(art, art["matched_keywords"])
-        if valid:
-            art["matched_keywords"] = valid
-            relevant.append(art)
-    print(
-        f"Relevance filter: kept {len(relevant)}/{raw_unique} "
-        f"(dropped {raw_unique - len(relevant)} with no keyword in title)",
-        flush=True,
-    )
+    mentions = list(by_id.values())
 
+    # GDELT already did phrase matching on the full article text; no further
+    # title-side filter — news headlines often use synonyms (e.g. "forever
+    # chemicals" rather than "PFAS", "Flint crisis" rather than "lead in
+    # water") and the title filter we used for YouTube over-rejects here.
     by_keyword_count = {kw: 0 for kw in ALL_TOPICS}
-    for art in relevant:
+    for art in mentions:
         for kw in art["matched_keywords"]:
             by_keyword_count[kw] += 1
 
-    relevant.sort(key=lambda a: a.get("published_at") or "", reverse=True)
+    mentions.sort(key=lambda a: a.get("published_at") or "", reverse=True)
 
     output = {
         "refreshed_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "keywords": ALL_TOPICS,
         "timespan": TIMESPAN,
-        "total_unique_mentions": len(relevant),
+        "total_unique_mentions": len(mentions),
         "by_keyword_count": by_keyword_count,
-        "mentions": relevant,
+        "mentions": mentions,
     }
 
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(output, indent=2))
     print(
         f"Wrote {OUTPUT} ({OUTPUT.stat().st_size:,} bytes, "
-        f"{len(relevant)} unique articles)",
+        f"{len(mentions)} unique articles)",
         flush=True,
     )
     return 0
