@@ -22,8 +22,10 @@ GitHub Actions (staggered daily crons)
 
 Required repository secrets:
 - `SERPAPI_KEY` — https://serpapi.com/manage-api-key
-- `REDDIT_CLIENT_ID`, `REDDIT_CLIENT_SECRET`, `REDDIT_USER_AGENT` — from a "script" app at https://www.reddit.com/prefs/apps
 - `YOUTUBE_API_KEY` — Google Cloud project with YouTube Data API v3 enabled
+
+Reddit uses the public JSON endpoints (no auth / no secret required), so
+no Reddit credentials to manage.
 
 Files:
 - `config.py` — shared constants (topic list, timeframes)
@@ -75,8 +77,7 @@ pip install -r requirements-fetch.txt
 export SERPAPI_KEY=your_key_here
 python scripts/fetch_trends.py
 
-# Reddit
-export REDDIT_CLIENT_ID=... REDDIT_CLIENT_SECRET=... REDDIT_USER_AGENT="water-trends-scan by /u/yourname"
+# Reddit (no credentials needed)
 python scripts/fetch_reddit.py
 
 # YouTube
