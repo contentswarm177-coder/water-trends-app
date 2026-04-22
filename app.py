@@ -59,17 +59,6 @@ def sparkline(series: pd.Series, title: str) -> go.Figure:
     return fig
 
 
-def overlay_chart(df: pd.DataFrame) -> go.Figure:
-    fig = px.line(df, height=460)
-    fig.update_layout(
-        margin=dict(l=0, r=0, t=10, b=0),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, title=None),
-        xaxis_title=None,
-        yaxis_title="Search interest (0–100)",
-    )
-    return fig
-
-
 def daily_volume_df(mentions: list[dict], date_field: str) -> pd.DataFrame:
     """Pivot mentions into a date-indexed DataFrame with one column per keyword."""
     rows: list[dict] = []
@@ -145,11 +134,11 @@ if df_trends.empty:
     st.error(f"No trends data for timeframe `{timeframe}`.")
     st.stop()
 
-tab_overview, tab_compare, tab_news, tab_youtube, tab_data = st.tabs(
-    ["Overview", "Compare", "News", "YouTube", "Data"]
+tab_search, tab_news, tab_youtube, tab_data = st.tabs(
+    ["Search Overview", "News", "YouTube", "Data"]
 )
 
-with tab_overview:
+with tab_search:
     st.markdown(
         "Search interest over time for each topic. Great for spotting shape and spikes."
     )
@@ -161,22 +150,6 @@ with tab_overview:
                 continue
             with cols[idx % 4]:
                 st.plotly_chart(sparkline(df_trends[topic], topic), use_container_width=True)
-
-with tab_compare:
-    st.markdown(
-        "Overlay multiple topics. Values are normalized within each 5-term fetch batch, "
-        "so cross-batch comparisons are approximate — best for comparing trend shape "
-        "and timing rather than absolute magnitude."
-    )
-    selection = st.multiselect(
-        "Topics",
-        options=ALL_TOPICS,
-        default=["PFAS", "microplastics", "lead in water"],
-    )
-    if selection:
-        st.plotly_chart(overlay_chart(df_trends[selection]), use_container_width=True)
-    else:
-        st.info("Select at least one topic to compare.")
 
 with tab_news:
     if not news:
