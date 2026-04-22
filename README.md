@@ -1,8 +1,32 @@
 # Water Quality Trends
 
-A public Streamlit dashboard tracking US Google Trends search interest for water
-quality topics (contaminants, filtration, water context). Built as a lightweight
-monitoring tool.
+A public Streamlit dashboard tracking US Google Trends search interest for
+water quality topics (contaminants, filtration, water context).
+
+## Architecture
+
+Google Trends rate-limits aggressively on shared IPs like Streamlit Cloud's.
+To sidestep that, the dashboard reads from a **committed data snapshot** that
+is refreshed daily by GitHub Actions:
+
+```
+GitHub Actions (cron 06:00 UTC)
+      │
+      │ pytrends fetch
+      ▼
+  data/trends.json  ──►  commit to main
+      │
+      ▼
+Streamlit Cloud (auto-redeploys on push) reads the JSON
+```
+
+Files:
+- `config.py` — shared constants (topic list, timeframes)
+- `app.py` — Streamlit dashboard, reads `data/trends.json`
+- `scripts/fetch_trends.py` — pytrends runner, writes `data/trends.json`
+- `.github/workflows/refresh-trends.yml` — daily cron + manual dispatch
+- `requirements.txt` — runtime deps for Streamlit Cloud (no pytrends)
+- `requirements-fetch.txt` — deps for the fetch job
 
 ## Topics tracked
 
@@ -12,10 +36,11 @@ nitrate in water, microplastics, fluoride in water, chromium 6
 **Context / source** — well water testing, hard water, tap water safety,
 bottled water
 
-**Solutions** — water filter, water filtration, reverse osmosis, water softener,
-whole house water filter
+**Solutions** — water filter, water filtration, reverse osmosis, water
+softener, whole house water filter
 
-Edit `TOPIC_GROUPS` at the top of `app.py` to change the list.
+Edit `TOPIC_GROUPS` in `config.py` to change the list. After changing topics,
+trigger the workflow manually from the Actions tab to refresh the snapshot.
 
 ## Run locally
 
@@ -30,40 +55,26 @@ streamlit run app.py
 
 Opens at http://localhost:8501.
 
-## Deploy to Streamlit Community Cloud
-
-One-time setup:
+## Refresh data locally (optional)
 
 ```bash
-# from the project root
-git init
-git add .
-git commit -m "Initial commit: water trends dashboard"
-
-# create the repo on GitHub (requires gh CLI, or do it manually on github.com)
-gh repo create water-trends-app --public --source=. --remote=origin --push
+source .venv/bin/activate
+pip install -r requirements-fetch.txt
+python scripts/fetch_trends.py
 ```
 
-Then:
+## Trigger a data refresh on GitHub
 
-1. Go to https://share.streamlit.io and sign in with GitHub.
-2. Click **New app** → pick your repo → branch `main` → main file `app.py`.
-3. Deploy. You'll get a public URL like `https://water-trends-app.streamlit.app`.
-
-Pushes to `main` auto-redeploy.
-
-## Data layer
-
-Trends data is fetched via `pytrends` and cached 24 hours with `@st.cache_data`.
-The **Data** tab exposes the raw DataFrame as a CSV download, so other
-workflows (e.g. content pipelines) can consume the same numbers.
+Go to the repo → **Actions** tab → **Refresh Google Trends data** →
+**Run workflow**. Takes ~1 minute. The workflow commits the updated
+`data/trends.json` and Streamlit Cloud auto-redeploys.
 
 ## Known quirks
 
-- **Google Trends rate limits**: `pytrends` is unofficial. 429 errors happen,
-  especially on Streamlit Cloud's shared IPs. The 24h cache absorbs most of
-  this — first load after cache expiry is the only risk window.
-- **Batch normalization**: pytrends caps comparisons at 5 terms per request.
-  17 topics → 4 sequential batches. Values within a batch are directly
-  comparable; across batches they aren't. The **Compare** tab sidesteps this
-  by fetching the user's selection as a single batch.
+- **Compare tab**: values are normalized within each 5-term pytrends batch,
+  so cross-batch comparisons are approximate. Best for comparing trend
+  *shape* and *timing* rather than absolute magnitude. If true
+  cross-comparison matters, we can add anchor-based normalization as a
+  follow-up.
+- **pytrends reliability**: GitHub Actions runners rotate IPs, so rate-limit
+  hits are rare but possible. If a refresh fails, re-run the workflow.
