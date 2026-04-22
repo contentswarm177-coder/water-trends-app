@@ -23,8 +23,8 @@ OUTPUT = REPO_ROOT / "data" / "news_mentions.json"
 API_URL = "https://api.gdeltproject.org/api/v2/doc/doc"
 TIMESPAN = "7d"
 MAX_RECORDS = 250
-KEYWORD_DELAY_SEC = 2.0
-MAX_RETRIES = 3
+KEYWORD_DELAY_SEC = 4.0
+MAX_RETRIES = 4
 USER_AGENT = (
     "water-trends-scan/1.0 "
     "(https://github.com/contentswarm177-coder/water-trends-app)"
@@ -57,18 +57,27 @@ def search_keyword(keyword: str) -> list[dict]:
     for attempt in range(MAX_RETRIES):
         try:
             resp = requests.get(API_URL, params=params, headers=headers, timeout=60)
+            if resp.status_code == 429:
+                wait = 10 * (2 ** attempt)
+                print(f"    429 for '{keyword}' (attempt {attempt + 1}); retry in {wait}s", flush=True)
+                time.sleep(wait)
+                continue
             if resp.status_code != 200:
-                print(f"    HTTP {resp.status_code} for '{keyword}'", flush=True)
+                print(f"    HTTP {resp.status_code} for '{keyword}' (giving up)", flush=True)
                 return []
             text = resp.text.strip()
             if not text or not text.startswith("{"):
-                print(f"    non-JSON response for '{keyword}' (rate-limited or error)", flush=True)
-                time.sleep(5)
+                wait = 10 * (2 ** attempt)
+                print(
+                    f"    non-JSON for '{keyword}' (attempt {attempt + 1}); retry in {wait}s",
+                    flush=True,
+                )
+                time.sleep(wait)
                 continue
             payload = json.loads(text)
             return payload.get("articles", []) or []
         except (requests.RequestException, json.JSONDecodeError) as exc:
-            wait = 5 * (2 ** attempt)
+            wait = 10 * (2 ** attempt)
             print(f"    attempt {attempt + 1} failed: {exc}; retry in {wait}s", flush=True)
             if attempt == MAX_RETRIES - 1:
                 return []
