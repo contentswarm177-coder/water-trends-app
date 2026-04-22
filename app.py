@@ -21,7 +21,8 @@ from config import ALL_TOPICS, TIMEFRAMES, TOPIC_GROUPS
 DATA_DIR = Path(__file__).parent / "data"
 TRENDS_FILE = DATA_DIR / "trends.json"
 YOUTUBE_FILE = DATA_DIR / "youtube_mentions.json"
-NEWS_FILE = DATA_DIR / "news_mentions.json"
+NEWS_SCORED_FILE = DATA_DIR / "news_scored.json"
+NEWS_RAW_FILE = DATA_DIR / "news_mentions.json"
 
 
 @st.cache_data(show_spinner=False)
@@ -93,7 +94,9 @@ st.set_page_config(page_title="Water Quality Trends", layout="wide", page_icon="
 
 trends = load_json(str(TRENDS_FILE))
 youtube = load_json(str(YOUTUBE_FILE))
-news = load_json(str(NEWS_FILE))
+# Prefer scored news if available; fall back to raw mentions
+news = load_json(str(NEWS_SCORED_FILE)) or load_json(str(NEWS_RAW_FILE))
+news_is_scored = bool(news.get("classified_at"))
 
 st.title("💧 Water Quality Trends")
 
@@ -139,17 +142,56 @@ with tab_news:
         st.warning("No news snapshot yet. Trigger the **Refresh news mentions** workflow.")
     else:
         mentions = news.get("mentions", [])
-        st.markdown(
-            f"{len(mentions):,} unique US/English news articles from the last "
-            f"{news.get('timespan', '7d')} mentioning tracked topics (GDELT 2.0)."
+        header_line = (
+            f"{len(mentions):,} articles from the last {news.get('timespan', '7d')} "
+            "(GDELT 2.0, US + English)."
         )
-        kw_filter = st.multiselect(
-            "Filter by keyword", ALL_TOPICS, default=[], key="news_kw"
-        )
-        filtered = [
-            m for m in mentions
-            if not kw_filter or any(k in m.get("matched_keywords", []) for k in kw_filter)
-        ]
+        if news_is_scored:
+            header_line += "  **Pattern 1 scored** — relevance, angle, notability by Claude."
+        st.markdown(header_line)
+
+        filter_cols = st.columns([2, 1, 1])
+        with filter_cols[0]:
+            kw_filter = st.multiselect(
+                "Filter by keyword", ALL_TOPICS, default=[], key="news_kw"
+            )
+        with filter_cols[1]:
+            if news_is_scored:
+                view_mode = st.radio(
+                    "View",
+                    ["Notable only", "Signal (≥5)", "All"],
+                    index=0,
+                    key="news_view",
+                    horizontal=False,
+                )
+            else:
+                view_mode = "All"
+        with filter_cols[2]:
+            if news_is_scored:
+                angle_filter = st.multiselect(
+                    "Angle",
+                    ["regulatory", "crisis", "water-quality", "science", "consumer",
+                     "legal", "lifestyle", "tangential", "noise"],
+                    default=[],
+                    key="news_angle",
+                )
+            else:
+                angle_filter = []
+
+        filtered = mentions
+        if kw_filter:
+            filtered = [
+                m for m in filtered
+                if any(k in m.get("matched_keywords", []) for k in kw_filter)
+            ]
+        if view_mode == "Notable only":
+            filtered = [m for m in filtered if m.get("notable")]
+        elif view_mode == "Signal (≥5)":
+            filtered = [m for m in filtered if m.get("relevance_score", 10) >= 5]
+        if angle_filter:
+            filtered = [m for m in filtered if m.get("primary_angle") in angle_filter]
+
+        st.caption(f"Showing **{len(filtered)}** of {len(mentions)} articles after filters.")
 
         col_chart, col_counts = st.columns([3, 1])
         with col_chart:
@@ -179,12 +221,12 @@ with tab_news:
             st.dataframe(domain_df, hide_index=True, use_container_width=False)
 
         st.divider()
-        st.subheader("Recent articles")
+        st.subheader("Articles")
         st.caption(
-            "Syndicated reposts are collapsed into one entry; **Sites** shows how many "
-            "outlets ran the story (a proxy for reach)."
+            "Sorted by relevance score. Syndicated reposts are collapsed; **Sites** "
+            "shows how many outlets ran the story."
         )
-        top_n = st.slider("Articles to show", 5, 100, 30, key="news_topn")
+        top_n = st.slider("Articles to show", 5, 200, 50, key="news_topn")
         if filtered:
             articles_df = pd.DataFrame(filtered)
             articles_df["published"] = pd.to_datetime(
@@ -193,15 +235,27 @@ with tab_news:
             articles_df["matched_keywords"] = articles_df["matched_keywords"].apply(", ".join)
             if "syndicated_count" not in articles_df.columns:
                 articles_df["syndicated_count"] = 1
-            articles_df = articles_df.head(top_n)
+            if "relevance_score" not in articles_df.columns:
+                articles_df["relevance_score"] = 0
+                articles_df["primary_angle"] = ""
+                articles_df["notable"] = False
+            articles_df = articles_df.sort_values(
+                ["notable", "relevance_score", "published"],
+                ascending=[False, False, False],
+            ).head(top_n)
+
+            display_cols = ["notable", "relevance_score", "primary_angle", "published",
+                            "domain", "syndicated_count", "title", "matched_keywords", "url"]
+            display_cols = [c for c in display_cols if c in articles_df.columns]
             st.dataframe(
-                articles_df[
-                    ["published", "domain", "syndicated_count", "title", "matched_keywords", "url"]
-                ],
+                articles_df[display_cols],
                 column_config={
+                    "notable": st.column_config.CheckboxColumn("⭐", help="VP-relevant"),
+                    "relevance_score": st.column_config.NumberColumn("Score", help="0-10"),
+                    "primary_angle": "Angle",
                     "published": st.column_config.DatetimeColumn("Published", format="MMM D, HH:mm"),
                     "domain": "Source",
-                    "syndicated_count": st.column_config.NumberColumn("Sites", help="Number of outlets that ran the story"),
+                    "syndicated_count": st.column_config.NumberColumn("Sites", help="Outlets that ran the story"),
                     "title": "Headline",
                     "matched_keywords": "Keywords",
                     "url": st.column_config.LinkColumn("Link", display_text="open"),
