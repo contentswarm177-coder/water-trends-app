@@ -40,7 +40,7 @@ def search_keyword(yt, keyword: str, published_after: str) -> list[str]:
     try:
         resp = yt.search().list(
             part="id",
-            q=keyword,
+            q=f'"{keyword}"',
             type="video",
             order="relevance",
             publishedAfter=published_after,
@@ -52,6 +52,12 @@ def search_keyword(yt, keyword: str, published_after: str) -> list[str]:
         print(f"  HTTP error for '{keyword}': {exc}", flush=True)
         return []
     return [item["id"]["videoId"] for item in resp.get("items", []) if item.get("id", {}).get("videoId")]
+
+
+def filter_relevant_keywords(video: dict) -> list[str]:
+    """Return only the matched keywords that actually appear in title/description."""
+    text = f"{video.get('title', '')} {video.get('description', '')}".lower()
+    return [kw for kw in video.get("matched_keywords", []) if kw.lower() in text]
 
 
 def fetch_video_details(yt, video_ids: list[str]) -> list[dict]:
@@ -111,6 +117,25 @@ def main() -> int:
                 "url": f"https://www.youtube.com/watch?v={vid_id}",
             }
         )
+
+    raw_count = len(mentions)
+    relevant: list[dict] = []
+    for m in mentions:
+        valid = filter_relevant_keywords(m)
+        if valid:
+            m["matched_keywords"] = valid
+            relevant.append(m)
+    mentions = relevant
+    print(
+        f"Relevance filter: kept {len(mentions)}/{raw_count} "
+        f"(dropped {raw_count - len(mentions)} with no keyword in title/description)",
+        flush=True,
+    )
+
+    by_keyword_count = {kw: 0 for kw in ALL_TOPICS}
+    for m in mentions:
+        for kw in m["matched_keywords"]:
+            by_keyword_count[kw] += 1
 
     mentions.sort(key=lambda m: m.get("view_count", 0), reverse=True)
 
