@@ -116,7 +116,11 @@ def volume_chart(df: pd.DataFrame, y_title: str) -> go.Figure:
     return fig
 
 
-st.set_page_config(page_title="Water Quality Trends", layout="wide", page_icon="💧")
+st.set_page_config(
+    page_title="Science & Policy Insights Group Listening Tool",
+    layout="wide",
+    page_icon="💧",
+)
 
 trends = load_json(str(TRENDS_FILE))
 youtube = load_json(str(YOUTUBE_FILE))
@@ -124,7 +128,8 @@ youtube = load_json(str(YOUTUBE_FILE))
 news = load_json(str(NEWS_SCORED_FILE)) or load_json(str(NEWS_RAW_FILE))
 news_is_scored = bool(news.get("classified_at"))
 
-st.title("💧 Water Quality Trends")
+st.title("💧 Science & Policy Insights Group Listening Tool")
+st.caption("Internal Use Only")
 
 if not trends:
     st.error("No trends snapshot found at `data/trends.json`.")
