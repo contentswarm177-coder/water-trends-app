@@ -112,44 +112,27 @@ st.caption(
     f"**News:** {format_refreshed(news.get('refreshed_at'))}"
 )
 
-with st.sidebar:
-    st.header("Controls")
-    timeframe_label = st.selectbox("Time range (Trends only)", list(TIMEFRAMES.keys()), index=1)
-    timeframe = TIMEFRAMES[timeframe_label]
-    st.divider()
-    st.markdown("**Tracked topics**")
-    for group, topics in TOPIC_GROUPS.items():
-        with st.expander(group, expanded=False):
-            for t in topics:
-                st.markdown(f"- {t}")
-    st.divider()
-    st.caption(
-        "Sources — Trends: SerpApi (Google Trends). "
-        "YouTube: Data API v3, US + English, quoted-phrase + title filter. "
-        "News: GDELT 2.0, US sources + English, quoted-phrase + title filter."
-    )
-
-df_trends = frame_for_timeframe(trends, timeframe)
-if df_trends.empty:
-    st.error(f"No trends data for timeframe `{timeframe}`.")
-    st.stop()
-
 tab_search, tab_news, tab_youtube = st.tabs(
     ["Web Search", "News", "YouTube"]
 )
 
 with tab_search:
-    st.markdown(
-        "Search interest over time for each topic. Great for spotting shape and spikes."
+    timeframe_label = st.selectbox(
+        "Time range", list(TIMEFRAMES.keys()), index=1, key="search_timeframe"
     )
-    for group, topics in TOPIC_GROUPS.items():
-        st.subheader(group)
-        cols = st.columns(4)
-        for idx, topic in enumerate(topics):
-            if topic not in df_trends.columns:
-                continue
-            with cols[idx % 4]:
-                st.plotly_chart(sparkline(df_trends[topic], topic), use_container_width=True)
+    timeframe = TIMEFRAMES[timeframe_label]
+    df_trends = frame_for_timeframe(trends, timeframe)
+    if df_trends.empty:
+        st.error(f"No trends data for timeframe `{timeframe}`.")
+    else:
+        for group, topics in TOPIC_GROUPS.items():
+            st.subheader(group)
+            cols = st.columns(4)
+            for idx, topic in enumerate(topics):
+                if topic not in df_trends.columns:
+                    continue
+                with cols[idx % 4]:
+                    st.plotly_chart(sparkline(df_trends[topic], topic), use_container_width=True)
 
 with tab_news:
     if not news:
