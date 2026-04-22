@@ -2,7 +2,7 @@ name: Refresh YouTube mentions
 
 on:
   schedule:
-    - cron: "0 9 * * *"  # 09:00 UTC daily (after reddit)
+    - cron: "0 9 * * *"  # 09:00 UTC daily
   workflow_dispatch:
 
 permissions:

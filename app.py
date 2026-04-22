@@ -1,9 +1,8 @@
 """Water Quality Trends & Social Listening Dashboard.
 
-Reads three daily snapshots committed by GitHub Actions workflows:
-- data/trends.json            (Google Trends via SerpApi)
-- data/reddit_mentions.json   (Reddit via PRAW)
-- data/youtube_mentions.json  (YouTube Data API v3)
+Reads two snapshots committed by GitHub Actions workflows:
+- data/trends.json            (Google Trends via SerpApi; manual-only refresh)
+- data/youtube_mentions.json  (YouTube Data API v3; daily cron)
 """
 from __future__ import annotations
 
@@ -20,7 +19,6 @@ from config import ALL_TOPICS, TIMEFRAMES, TOPIC_GROUPS
 
 DATA_DIR = Path(__file__).parent / "data"
 TRENDS_FILE = DATA_DIR / "trends.json"
-REDDIT_FILE = DATA_DIR / "reddit_mentions.json"
 YOUTUBE_FILE = DATA_DIR / "youtube_mentions.json"
 
 
@@ -103,7 +101,6 @@ def volume_chart(df: pd.DataFrame, y_title: str) -> go.Figure:
 st.set_page_config(page_title="Water Quality Trends", layout="wide", page_icon="💧")
 
 trends = load_json(str(TRENDS_FILE))
-reddit = load_json(str(REDDIT_FILE))
 youtube = load_json(str(YOUTUBE_FILE))
 
 st.title("💧 Water Quality Trends")
@@ -119,7 +116,6 @@ if not trends:
 trends_refreshed = format_refreshed(trends.get("refreshed_at"))
 st.caption(
     f"**Trends:** {trends_refreshed} · "
-    f"**Reddit:** {format_refreshed(reddit.get('refreshed_at'))} · "
     f"**YouTube:** {format_refreshed(youtube.get('refreshed_at'))}"
 )
 
@@ -136,8 +132,7 @@ with st.sidebar:
     st.divider()
     st.caption(
         "Sources — Trends: SerpApi (Google Trends engine). "
-        "Reddit: PRAW, r/all search. "
-        "YouTube: Data API v3, US region, English."
+        "YouTube: Data API v3, US region, English, quoted-phrase search + title/description filter."
     )
 
 df_trends = frame_for_timeframe(trends, timeframe)
@@ -145,8 +140,8 @@ if df_trends.empty:
     st.error(f"No trends data for timeframe `{timeframe}`.")
     st.stop()
 
-tab_overview, tab_compare, tab_reddit, tab_youtube, tab_data = st.tabs(
-    ["Overview", "Compare", "Reddit", "YouTube", "Data"]
+tab_overview, tab_compare, tab_youtube, tab_data = st.tabs(
+    ["Overview", "Compare", "YouTube", "Data"]
 )
 
 with tab_overview:
@@ -177,69 +172,6 @@ with tab_compare:
         st.plotly_chart(overlay_chart(df_trends[selection]), use_container_width=True)
     else:
         st.info("Select at least one topic to compare.")
-
-with tab_reddit:
-    if not reddit:
-        st.warning("No Reddit snapshot yet. Trigger the **Refresh Reddit mentions** workflow.")
-    else:
-        mentions = reddit.get("mentions", [])
-        st.markdown(
-            f"{len(mentions):,} unique Reddit posts from the last week mentioning tracked topics."
-        )
-        kw_filter = st.multiselect(
-            "Filter by keyword", ALL_TOPICS, default=[], key="reddit_kw"
-        )
-        filtered = [
-            m for m in mentions
-            if not kw_filter or any(k in m.get("matched_keywords", []) for k in kw_filter)
-        ]
-
-        col_chart, col_counts = st.columns([3, 1])
-        with col_chart:
-            vol_df = daily_volume_df(filtered, "created_utc")
-            if not vol_df.empty:
-                st.plotly_chart(volume_chart(vol_df, "Posts per day"), use_container_width=True)
-            else:
-                st.info("No posts match the filter.")
-        with col_counts:
-            st.markdown("**Posts per keyword**")
-            counts = (
-                pd.Series(reddit.get("by_keyword_count", {}))
-                .sort_values(ascending=False)
-                .rename("count")
-                .to_frame()
-            )
-            st.dataframe(counts, use_container_width=True, height=360)
-
-        st.divider()
-        st.subheader("Top posts")
-        sort_by = st.radio(
-            "Sort by", ["score", "num_comments"],
-            horizontal=True, key="reddit_sort",
-        )
-        top_n = st.slider("Posts to show", 5, 50, 20, key="reddit_topn")
-        if filtered:
-            posts_df = pd.DataFrame(filtered)
-            posts_df["created"] = pd.to_datetime(posts_df["created_utc"], unit="s", utc=True)
-            posts_df["matched_keywords"] = posts_df["matched_keywords"].apply(", ".join)
-            posts_df = posts_df.sort_values(sort_by, ascending=False).head(top_n)
-            st.dataframe(
-                posts_df[
-                    ["created", "subreddit", "title", "score", "num_comments",
-                     "matched_keywords", "permalink"]
-                ],
-                column_config={
-                    "created": st.column_config.DatetimeColumn("Date", format="MMM D"),
-                    "subreddit": "Subreddit",
-                    "title": "Title",
-                    "score": st.column_config.NumberColumn("Score"),
-                    "num_comments": st.column_config.NumberColumn("Comments"),
-                    "matched_keywords": "Keywords",
-                    "permalink": st.column_config.LinkColumn("Link", display_text="open"),
-                },
-                hide_index=True,
-                use_container_width=True,
-            )
 
 with tab_youtube:
     if not youtube:
@@ -317,15 +249,6 @@ with tab_data:
         file_name=f"water_trends_{timeframe.replace(' ', '_')}.csv",
         mime="text/csv",
     )
-    if reddit:
-        st.divider()
-        st.markdown(f"**Reddit mentions JSON** · {reddit.get('total_unique_mentions', 0)} posts")
-        st.download_button(
-            "Download Reddit JSON",
-            data=json.dumps(reddit, indent=2).encode("utf-8"),
-            file_name="reddit_mentions.json",
-            mime="application/json",
-        )
     if youtube:
         st.divider()
         st.markdown(f"**YouTube mentions JSON** · {youtube.get('total_unique_mentions', 0)} videos")

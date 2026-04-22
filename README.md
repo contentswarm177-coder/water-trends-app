@@ -5,20 +5,24 @@ water quality topics (contaminants, filtration, water context).
 
 ## Architecture
 
-Three independent daily GitHub Actions workflows each fetch from a different
-source and commit a JSON snapshot to the repo. The Streamlit app reads the
-committed files — no live API calls at view time.
+Two independent GitHub Actions workflows fetch from different sources and
+commit JSON snapshots to the repo. The Streamlit app reads the committed
+files — no live API calls at view time.
 
 ```
 GitHub Actions
   ├─ manual-only  SerpApi Google Trends    →  data/trends.json
-  ├─ 07:30 UTC    Reddit (public JSON)     →  data/reddit_mentions.json
   └─ 09:00 UTC    YouTube Data API v3      →  data/youtube_mentions.json
       │
       │ commits to main
       ▼
   Streamlit Cloud auto-redeploys, reads the snapshots
 ```
+
+Reddit was scoped out of v1: Reddit's new developer policy blocks
+script-app creation for most users, and unauthenticated public-JSON
+requests are IP-blocked from GitHub Actions runners. Revisit via a paid
+scraper (Apify, ~$30–50/mo) if Reddit coverage becomes a priority.
 
 **Why trends is manual-only:** SerpApi's free tier is 100 searches/month; a
 daily cron would burn ~480. Trigger the `Refresh Google Trends data` workflow
@@ -35,13 +39,12 @@ no Reddit credentials to manage.
 
 Files:
 - `config.py` — shared constants (topic list, timeframes)
-- `app.py` — Streamlit dashboard, reads the three snapshots
+- `app.py` — Streamlit dashboard, reads the two snapshots
 - `scripts/fetch_trends.py` — SerpApi runner
-- `scripts/fetch_reddit.py` — PRAW runner
 - `scripts/fetch_youtube.py` — YouTube Data API runner
-- `.github/workflows/refresh-*.yml` — three daily cron workflows + manual dispatch
+- `.github/workflows/refresh-*.yml` — trends (manual) + youtube (daily cron)
 - `requirements.txt` — runtime deps for Streamlit Cloud
-- `requirements-fetch.txt` — deps shared across all fetch jobs
+- `requirements-fetch.txt` — deps shared across fetch jobs
 
 ## Topics tracked
 
@@ -83,9 +86,6 @@ pip install -r requirements-fetch.txt
 export SERPAPI_KEY=your_key_here
 python scripts/fetch_trends.py
 
-# Reddit (no credentials needed)
-python scripts/fetch_reddit.py
-
 # YouTube
 export YOUTUBE_API_KEY=...
 python scripts/fetch_youtube.py
@@ -107,8 +107,9 @@ Go to the repo → **Actions** tab → **Refresh Google Trends data** →
 - **SerpApi credits**: each trends run uses ~16 credits (4 timeframes × 4
   batches). Monthly cron usage is ~480 credits. The Developer plan (5k/mo) has
   plenty of headroom for manual re-runs.
-- **Reddit search noise**: `r/all` search returns everything from product
-  recommendations to jokes to unrelated meanings. If signal is poor, curate
-  a subreddit whitelist in `scripts/fetch_reddit.py`.
 - **YouTube quota**: each run uses ~1,720 of the daily 10k free quota. Room
   for 4–5 manual re-runs per day.
+- **YouTube signal**: search uses quoted phrases + a post-fetch filter that
+  drops videos whose title or description don't contain a matched keyword.
+  Cuts noise (random viral shorts) substantially but may still surface
+  off-topic content with keyword-shaped titles — curate via the dashboard.
