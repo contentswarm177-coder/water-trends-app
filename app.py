@@ -149,7 +149,7 @@ with tab_search:
     freshness_banner(
         trends.get("refreshed_at"),
         "Web Search trends",
-        "Ask Claude to 'refresh the web search' to update.",
+        "Ask Eric to 'refresh the web search' to update.",
     )
     timeframe_label = st.selectbox(
         "Time range", list(TIMEFRAMES.keys()), index=1, key="search_timeframe"
@@ -172,7 +172,7 @@ with tab_news:
     freshness_banner(
         news.get("classified_at") or news.get("refreshed_at"),
         "News",
-        "Ask Claude to 'refresh the news' to fetch + rescore.",
+        "Ask Eric to 'refresh the news' to fetch + rescore.",
     )
     if not news:
         st.info("Ask Claude in a session to refresh the news and seed this view.")
