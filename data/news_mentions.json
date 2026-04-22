@@ -1,0 +1,487 @@
+{
+  "refreshed_at": "2026-04-22T22:42:05+00:00",
+  "keywords": [
+    "PFAS",
+    "forever chemicals",
+    "lead in water",
+    "arsenic in water",
+    "nitrate in water",
+    "microplastics",
+    "fluoride in water",
+    "chromium 6",
+    "well water testing",
+    "hard water",
+    "tap water safety",
+    "bottled water",
+    "water filter",
+    "water filtration",
+    "reverse osmosis",
+    "water softener",
+    "whole house water filter"
+  ],
+  "timespan": "7d",
+  "total_unique_mentions": 34,
+  "by_keyword_count": {
+    "PFAS": 0,
+    "forever chemicals": 5,
+    "lead in water": 0,
+    "arsenic in water": 0,
+    "nitrate in water": 0,
+    "microplastics": 24,
+    "fluoride in water": 0,
+    "chromium 6": 0,
+    "well water testing": 2,
+    "hard water": 0,
+    "tap water safety": 0,
+    "bottled water": 0,
+    "water filter": 3,
+    "water filtration": 0,
+    "reverse osmosis": 0,
+    "water softener": 0,
+    "whole house water filter": 0
+  },
+  "mentions": [
+    {
+      "id": "https://www.dailycamera.com/2026/04/22/editorial-environment-microplastics-rfk-epa/",
+      "domain": "dailycamera.com",
+      "title": "A well - deserved war on microplastics ( Editorial ) ",
+      "url": "https://www.dailycamera.com/2026/04/22/editorial-environment-microplastics-rfk-epa/",
+      "published_at": "2026-04-22T15:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.dailycamera.com/wp-content/uploads/2026/01/202601110400MCT_____PHOTO____US-NEWS-ENV-PLASTIC-PELLETS-MCT-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.wateronline.com/doc/inma-is-leading-an-international-project-to-capture-and-degrade-microplastics-in-wastewater-treatment-plants-0001",
+      "domain": "wateronline.com",
+      "title": "INMA Is Leading An International Project To Capture And Degrade Microplastics In Wastewater Treatment Plants",
+      "url": "https://www.wateronline.com/doc/inma-is-leading-an-international-project-to-capture-and-degrade-microplastics-in-wastewater-treatment-plants-0001",
+      "published_at": "2026-04-22T13:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://latitude.plos.org/2026/04/behind-the-paper-fast-tracking-the-fight-against-forever-chemicals-in-drinking-water/",
+      "domain": "latitude.plos.org",
+      "title": "Behind the paper : fast - tracking the fight against  forever chemicals  in drinking water",
+      "url": "https://latitude.plos.org/2026/04/behind-the-paper-fast-tracking-the-fight-against-forever-chemicals-in-drinking-water/",
+      "published_at": "2026-04-22T12:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "http://latitude.plos.org/wp-content/uploads/sites/18/2026/04/Blog-photo_PWAT-D-25-00246_Wang-1024x834.png",
+      "matched_keywords": [
+        "forever chemicals"
+      ]
+    },
+    {
+      "id": "https://www.wyomingnews.com/laramieboomerang/opinion/guest_column/editorial-a-well-deserved-war-on-microplastics/article_5239f718-3bcd-4456-bd3e-7cb65e96c731.html",
+      "domain": "wyomingnews.com",
+      "title": "Editorial : A well - deserved war on microplastics",
+      "url": "https://www.wyomingnews.com/laramieboomerang/opinion/guest_column/editorial-a-well-deserved-war-on-microplastics/article_5239f718-3bcd-4456-bd3e-7cb65e96c731.html",
+      "published_at": "2026-04-21T22:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.chicago2.vip.townnews.com/wyomingnews.com/content/tncms/assets/v3/editorial/0/65/065ae695-56c2-4cc3-b8d8-1ff0c1ecd329/69e7dcdb22d66.image.jpg?crop=1763%2C926%2C0%2C124",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.wyomingnews.com/opinion/guest_column/editorial-a-well-deserved-war-on-microplastics/article_5239f718-3bcd-4456-bd3e-7cb65e96c731.html",
+      "domain": "wyomingnews.com",
+      "title": "Editorial : A well - deserved war on microplastics",
+      "url": "https://www.wyomingnews.com/opinion/guest_column/editorial-a-well-deserved-war-on-microplastics/article_5239f718-3bcd-4456-bd3e-7cb65e96c731.html",
+      "published_at": "2026-04-21T22:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.chicago2.vip.townnews.com/wyomingnews.com/content/tncms/assets/v3/editorial/0/65/065ae695-56c2-4cc3-b8d8-1ff0c1ecd329/69e7dcdb22d66.image.jpg?crop=1763%2C926%2C0%2C124",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.dailymail.com/health/article-15733433/cancer-forever-chemicals-closet-PFAS-clothes.html",
+      "domain": "dailymail.com",
+      "title": "The cancer - causing forever chemicals lurking in your closet ... and the major brands and types of clothes that are putting YOU at risk",
+      "url": "https://www.dailymail.com/health/article-15733433/cancer-forever-chemicals-closet-PFAS-clothes.html",
+      "published_at": "2026-04-21T03:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://i.dailymail.co.uk/1s/2026/04/15/20/107923359-0-image-m-32_1776282538099.jpg",
+      "matched_keywords": [
+        "forever chemicals"
+      ]
+    },
+    {
+      "id": "https://www.dailylocal.com/2026/04/20/gardening-plastics/",
+      "domain": "dailylocal.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.dailylocal.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T22:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.dailylocal.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.wthitv.com/news/indiana-department-of-environmental-management-offers-free-well-water-testing/article_56ac9955-8b68-4788-b9da-d7d68bca621c.html",
+      "domain": "wthitv.com",
+      "title": "Indiana Department of Environmental Management offers free well water testing",
+      "url": "https://www.wthitv.com/news/indiana-department-of-environmental-management-offers-free-well-water-testing/article_56ac9955-8b68-4788-b9da-d7d68bca621c.html",
+      "published_at": "2026-04-20T22:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.newyork1.vip.townnews.com/wthitv.com/content/tncms/assets/v3/editorial/b/92/b92ddcb8-62a7-471e-acb6-82a0cb13b914/68e909e8e9a7c.image.jpg?crop=1919%2C1007%2C0%2C36",
+      "matched_keywords": [
+        "well water testing"
+      ]
+    },
+    {
+      "id": "https://www.news-herald.com/2026/04/20/gardening-plastics/",
+      "domain": "news-herald.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.news-herald.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T19:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.news-herald.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.troyrecord.com/2026/04/20/gardening-plastics/",
+      "domain": "troyrecord.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.troyrecord.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T18:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.troyrecord.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.saratogian.com/2026/04/20/gardening-plastics/",
+      "domain": "saratogian.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.saratogian.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T18:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.saratogian.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.themorningsun.com/2026/04/20/gardening-plastics/",
+      "domain": "themorningsun.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.themorningsun.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T16:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.themorningsun.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.mainlinemedianews.com/2026/04/20/gardening-plastics/",
+      "domain": "mainlinemedianews.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.mainlinemedianews.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T16:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.mainlinemedianews.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.dailyfreeman.com/2026/04/20/gardening-plastics/",
+      "domain": "dailyfreeman.com",
+      "title": "Plastic garden gear can add microplastics . Here are some alternatives",
+      "url": "https://www.dailyfreeman.com/2026/04/20/gardening-plastics/",
+      "published_at": "2026-04-20T16:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.dailyfreeman.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://dailybulldog.com/features/maine-is-tightening-limits-on-forever-chemicals-in-drinking-water-are-communities-ready/",
+      "domain": "dailybulldog.com",
+      "title": "Maine is tightening limits on  forever chemicals  in drinking water . Are communities ready ? ",
+      "url": "https://dailybulldog.com/features/maine-is-tightening-limits-on-forever-chemicals-in-drinking-water-are-communities-ready/",
+      "published_at": "2026-04-20T14:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://dailybulldog.com/wp-content/uploads/2026/04/PFAS-well.jpg",
+      "matched_keywords": [
+        "forever chemicals"
+      ]
+    },
+    {
+      "id": "https://www.whittierdailynews.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "whittierdailynews.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.whittierdailynews.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T19:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.whittierdailynews.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.ocregister.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "ocregister.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.ocregister.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T19:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.ocregister.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.sbsun.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "sbsun.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.sbsun.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T18:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.sbsun.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.dailynews.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "dailynews.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.dailynews.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T18:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.dailynews.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.presstelegram.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "presstelegram.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.presstelegram.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T17:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.presstelegram.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.dailybulletin.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "domain": "dailybulletin.com",
+      "title": "Plastic garden gear can add microplastics to soil . Try some alternatives",
+      "url": "https://www.dailybulletin.com/2026/04/19/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/",
+      "published_at": "2026-04-19T16:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.dailybulletin.com/wp-content/uploads/2026/04/Be_Well-Gardening-Plastics_71772-1-1.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.sandiegouniontribune.com/2026/04/18/do-you-really-need-a-water-filter-heres-what-experts-say/",
+      "domain": "sandiegouniontribune.com",
+      "title": "Do you really need a water filter ? Here what experts say \u2013 San Diego Union - Tribune",
+      "url": "https://www.sandiegouniontribune.com/2026/04/18/do-you-really-need-a-water-filter-heres-what-experts-say/",
+      "published_at": "2026-04-18T14:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.sandiegouniontribune.com/wp-content/uploads/2026/04/SUT-Z-WATERFILTERS-0418-AdobeStock357577035.jpeg",
+      "matched_keywords": [
+        "water filter"
+      ]
+    },
+    {
+      "id": "https://roarmag.org/Bypass-Plug-Compatible-For-GE-Refrigerator-b-647334",
+      "domain": "roarmag.org",
+      "title": "Ge Appliances WR17X33825 Refrigerator Water Filter Bypass Plug Compatible For GE Refrigerator Ge\u00ae Xwfe\u2122 Refrigerator Water Filter",
+      "url": "https://roarmag.org/Bypass-Plug-Compatible-For-GE-Refrigerator-b-647334",
+      "published_at": "2026-04-18T04:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://m.media-amazon.com/images/I/71JIQG9yOHL._AC_.jpg",
+      "matched_keywords": [
+        "water filter"
+      ]
+    },
+    {
+      "id": "https://www.jdsupra.com/legalnews/epa-targets-microplastics-4599256/",
+      "domain": "jdsupra.com",
+      "title": "EPA Targets Microplastics , Pharmaceuticals , and PFAS in Drinking Water | Alston & Bird",
+      "url": "https://www.jdsupra.com/legalnews/epa-targets-microplastics-4599256/",
+      "published_at": "2026-04-18T03:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://jdsupra-static.s3.amazonaws.com/profile-images/og.15546_5043.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.lockportjournal.com/news/lifestyles/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/article_0dad7b11-b08b-4bf9-964e-09099f7f46e9.html",
+      "domain": "lockportjournal.com",
+      "title": "Plastic garden gear can add microplastics to the soil . Here are some alternatives",
+      "url": "https://www.lockportjournal.com/news/lifestyles/plastic-garden-gear-can-add-microplastics-to-the-soil-here-are-some-alternatives/article_0dad7b11-b08b-4bf9-964e-09099f7f46e9.html",
+      "published_at": "2026-04-17T14:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.chicago2.vip.townnews.com/lockportjournal.com/content/tncms/assets/v3/editorial/c/03/c03f3acf-e49d-4d37-acf4-95a8162ba17a/69e01b6e6a757.image.jpg?crop=1662%2C873%2C0%2C187",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.wbur.org/hereandnow/2026/04/16/lab-gloves-microplastics",
+      "domain": "wbur.org",
+      "title": "Research finds lab gloves can contaminate testing for microplastics , inflating numbers",
+      "url": "https://www.wbur.org/hereandnow/2026/04/16/lab-gloves-microplastics",
+      "published_at": "2026-04-17T00:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://media.wbur.org/wp/2016/06/HereandNow-3000b-1000x1000.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.zmescience.com/science/news-science/the-hidden-hazard-in-your-kitchen-why-water-filters-can-do-more-harm-than-good/",
+      "domain": "zmescience.com",
+      "title": "The Gross Reason You Need To Change Your Old Water Filter Cartridge Right Now",
+      "url": "https://www.zmescience.com/science/news-science/the-hidden-hazard-in-your-kitchen-why-water-filters-can-do-more-harm-than-good/",
+      "published_at": "2026-04-16T22:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://cdn.zmescience.com/wp-content/uploads/2026/04/4429251104_03c465dde3_k.jpg",
+      "matched_keywords": [
+        "water filter"
+      ]
+    },
+    {
+      "id": "https://www.kccu.org/science/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "domain": "kccu.org",
+      "title": "Research finds lab gloves can contaminate testing for microplastics , inflating numbers",
+      "url": "https://www.kccu.org/science/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "published_at": "2026-04-16T21:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.wfae.org/science-environment/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "domain": "wfae.org",
+      "title": "Research finds lab gloves can contaminate testing for microplastics , inflating numbers",
+      "url": "https://www.wfae.org/science-environment/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "published_at": "2026-04-16T20:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.klcc.org/npr-science-environment/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "domain": "klcc.org",
+      "title": "Research finds lab gloves can contaminate testing for microplastics , inflating numbers",
+      "url": "https://www.klcc.org/npr-science-environment/2026-04-16/research-finds-lab-gloves-can-contaminate-testing-for-microplastics-inflating-numbers",
+      "published_at": "2026-04-16T20:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.law360.com:443/articles/2463768",
+      "domain": "law360.com",
+      "title": "Microplastics On Water Contaminant List Could Spur Claims",
+      "url": "https://www.law360.com:443/articles/2463768",
+      "published_at": "2026-04-16T20:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.law360.com/images/law360-stacked.png",
+      "matched_keywords": [
+        "microplastics"
+      ]
+    },
+    {
+      "id": "https://www.clinicaladvisor.com/news/epa-delays-decisions-on-forever-chemicals/",
+      "domain": "clinicaladvisor.com",
+      "title": "EPA Delays Decisions on  Forever Chemicals  ",
+      "url": "https://www.clinicaladvisor.com/news/epa-delays-decisions-on-forever-chemicals/",
+      "published_at": "2026-04-16T19:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.clinicaladvisor.com/wp-content/uploads/sites/11/2024/01/CA_1200x675.png",
+      "matched_keywords": [
+        "forever chemicals"
+      ]
+    },
+    {
+      "id": "https://wkvi.com/2026/04/idem-accepting-applications-for-free-well-water-testing/",
+      "domain": "wkvi.com",
+      "title": "IDEM accepting applications for free well water testing",
+      "url": "https://wkvi.com/2026/04/idem-accepting-applications-for-free-well-water-testing/",
+      "published_at": "2026-04-16T15:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "well water testing"
+      ]
+    },
+    {
+      "id": "https://www.kxxv.com/news/local-news/in-your-neighborhood/texas-attorney-general-launches-investigation-into-lululemon-over-forever-chemicals-found-in-clothing",
+      "domain": "kxxv.com",
+      "title": "Texas AG launches investigation into Lululemon over forever chemicals",
+      "url": "https://www.kxxv.com/news/local-news/in-your-neighborhood/texas-attorney-general-launches-investigation-into-lululemon-over-forever-chemicals-found-in-clothing",
+      "published_at": "2026-04-16T13:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "http://ewscripps-brightspot.s3.amazonaws.com/35/d4/12c31ec14984ae4a16ea9176aa55/image.jpeg",
+      "matched_keywords": [
+        "forever chemicals"
+      ]
+    }
+  ]
+}
