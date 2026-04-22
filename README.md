@@ -10,15 +10,21 @@ source and commit a JSON snapshot to the repo. The Streamlit app reads the
 committed files — no live API calls at view time.
 
 ```
-GitHub Actions (staggered daily crons)
-  ├─ 06:00 UTC  SerpApi Google Trends      →  data/trends.json
-  ├─ 07:30 UTC  Reddit via PRAW            →  data/reddit_mentions.json
-  └─ 09:00 UTC  YouTube Data API v3        →  data/youtube_mentions.json
+GitHub Actions
+  ├─ manual-only  SerpApi Google Trends    →  data/trends.json
+  ├─ 07:30 UTC    Reddit (public JSON)     →  data/reddit_mentions.json
+  └─ 09:00 UTC    YouTube Data API v3      →  data/youtube_mentions.json
       │
       │ commits to main
       ▼
   Streamlit Cloud auto-redeploys, reads the snapshots
 ```
+
+**Why trends is manual-only:** SerpApi's free tier is 100 searches/month; a
+daily cron would burn ~480. Trigger the `Refresh Google Trends data` workflow
+manually when you want fresh trend data (uses ~16 credits per run, so ~5-6
+manual refreshes/month fit in the free tier). Re-enable the daily schedule
+in `.github/workflows/refresh-trends.yml` once on a paid SerpApi plan.
 
 Required repository secrets:
 - `SERPAPI_KEY` — https://serpapi.com/manage-api-key

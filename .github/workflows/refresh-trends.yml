@@ -1,8 +1,11 @@
 name: Refresh Google Trends data
 
 on:
-  schedule:
-    - cron: "0 6 * * *"  # 06:00 UTC daily
+  # Scheduled refresh is disabled to preserve SerpApi free-tier quota
+  # (100 searches/month; daily would use ~480). Re-enable by uncommenting
+  # the schedule block below once on a paid SerpApi plan.
+  # schedule:
+  #   - cron: "0 6 * * *"  # 06:00 UTC daily
   workflow_dispatch:
 
 permissions:
