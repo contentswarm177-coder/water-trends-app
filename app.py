@@ -197,6 +197,10 @@ with tab_news:
 
         st.divider()
         st.subheader("Recent articles")
+        st.caption(
+            "Syndicated reposts are collapsed into one entry; **Sites** shows how many "
+            "outlets ran the story (a proxy for reach)."
+        )
         top_n = st.slider("Articles to show", 5, 100, 30, key="news_topn")
         if filtered:
             articles_df = pd.DataFrame(filtered)
@@ -204,14 +208,17 @@ with tab_news:
                 articles_df["published_at"], utc=True, errors="coerce"
             )
             articles_df["matched_keywords"] = articles_df["matched_keywords"].apply(", ".join)
+            if "syndicated_count" not in articles_df.columns:
+                articles_df["syndicated_count"] = 1
             articles_df = articles_df.head(top_n)
             st.dataframe(
                 articles_df[
-                    ["published", "domain", "title", "matched_keywords", "url"]
+                    ["published", "domain", "syndicated_count", "title", "matched_keywords", "url"]
                 ],
                 column_config={
                     "published": st.column_config.DatetimeColumn("Published", format="MMM D, HH:mm"),
                     "domain": "Source",
+                    "syndicated_count": st.column_config.NumberColumn("Sites", help="Number of outlets that ran the story"),
                     "title": "Headline",
                     "matched_keywords": "Keywords",
                     "url": st.column_config.LinkColumn("Link", display_text="open"),

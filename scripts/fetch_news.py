@@ -2,11 +2,14 @@
 
 GDELT is free, requires no API key, and has no rate-limit quota (though
 it recommends polite spacing between requests). We query per keyword with
-phrase-match + US sources + English, dedupe by URL, and write the result.
+phrase-match + US sources + English, then apply Tier 1 curation:
+- collapse syndicated near-duplicates (same AP story on 20 local papers)
+- cap articles per-domain to prevent one source from dominating
 """
 from __future__ import annotations
 
 import json
+import re
 import sys
 import time
 from datetime import datetime, timezone
@@ -25,6 +28,9 @@ TIMESPAN = "7d"
 MAX_RECORDS = 250
 KEYWORD_DELAY_SEC = 4.0
 MAX_RETRIES = 4
+
+TITLE_PREFIX_LEN = 40
+PER_DOMAIN_CAP = 5
 USER_AGENT = (
     "water-trends-scan/1.0 "
     "(https://github.com/contentswarm177-coder/water-trends-app)"
@@ -85,6 +91,58 @@ def search_keyword(keyword: str) -> list[dict]:
     return []
 
 
+def title_key(title: str | None) -> str:
+    """Normalized prefix of a title, used as a dedup key for syndicated stories.
+
+    AP/Reuters stories reposted on local papers usually share an identical
+    first 40-60 characters of headline even when the tail diverges ("...
+    Here are some alternatives" vs "... Try some alternatives"). Taking a
+    prefix of the normalized title catches that cleanly without needing
+    fuzzy similarity.
+    """
+    clean = re.sub(r"[^a-z0-9 ]", "", (title or "").lower())
+    clean = re.sub(r"\s+", " ", clean).strip()
+    return clean[:TITLE_PREFIX_LEN]
+
+
+def collapse_syndication(articles: list[dict]) -> list[dict]:
+    """Merge articles that share a title prefix into a single consolidated entry."""
+    groups: dict[str, list[dict]] = {}
+    for art in articles:
+        key = title_key(art.get("title"))
+        if not key:
+            key = art.get("id") or ""
+        groups.setdefault(key, []).append(art)
+
+    consolidated: list[dict] = []
+    for group in groups.values():
+        group.sort(key=lambda a: a.get("published_at") or "")
+        rep = dict(group[0])
+        rep["syndicated_count"] = len(group)
+        rep["syndicated_domains"] = sorted(
+            {a["domain"] for a in group if a.get("domain")}
+        )
+        merged_keywords: set[str] = set()
+        for a in group:
+            merged_keywords.update(a.get("matched_keywords", []))
+        rep["matched_keywords"] = sorted(merged_keywords)
+        consolidated.append(rep)
+    return consolidated
+
+
+def apply_domain_cap(articles: list[dict], cap: int) -> list[dict]:
+    """Cap stories per primary domain to prevent one outlet from dominating."""
+    counts: dict[str, int] = {}
+    kept: list[dict] = []
+    for art in sorted(articles, key=lambda a: a.get("published_at") or "", reverse=True):
+        domain = art.get("domain") or ""
+        if counts.get(domain, 0) >= cap:
+            continue
+        counts[domain] = counts.get(domain, 0) + 1
+        kept.append(art)
+    return kept
+
+
 def normalize_article(raw: dict) -> dict | None:
     url = raw.get("url")
     if not url:
@@ -121,11 +179,20 @@ def main() -> int:
         time.sleep(KEYWORD_DELAY_SEC)
 
     mentions = list(by_id.values())
+    raw_count = len(mentions)
 
-    # GDELT already did phrase matching on the full article text; no further
-    # title-side filter — news headlines often use synonyms (e.g. "forever
-    # chemicals" rather than "PFAS", "Flint crisis" rather than "lead in
-    # water") and the title filter we used for YouTube over-rejects here.
+    # Tier 1 curation: collapse syndicated reposts and cap per-domain
+    mentions = collapse_syndication(mentions)
+    after_dedup = len(mentions)
+    mentions = apply_domain_cap(mentions, PER_DOMAIN_CAP)
+    after_cap = len(mentions)
+    print(
+        f"Tier 1 curation: {raw_count} raw → {after_dedup} unique stories "
+        f"(collapsed {raw_count - after_dedup} syndicated reposts) "
+        f"→ {after_cap} after per-domain cap of {PER_DOMAIN_CAP}",
+        flush=True,
+    )
+
     by_keyword_count = {kw: 0 for kw in ALL_TOPICS}
     for art in mentions:
         for kw in art["matched_keywords"]:
