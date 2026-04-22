@@ -34,6 +34,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: refresh news mentions"
-            git pull --rebase origin main
+            git pull --rebase -X theirs origin main
             git push
           fi
