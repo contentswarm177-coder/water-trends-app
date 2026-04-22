@@ -5,13 +5,14 @@ water quality topics (contaminants, filtration, water context).
 
 ## Architecture
 
-Two independent GitHub Actions workflows fetch from different sources and
-commit JSON snapshots to the repo. The Streamlit app reads the committed
-files — no live API calls at view time.
+Three independent GitHub Actions workflows fetch from different sources
+and commit JSON snapshots to the repo. The Streamlit app reads the
+committed files — no live API calls at view time.
 
 ```
 GitHub Actions
   ├─ manual-only  SerpApi Google Trends    →  data/trends.json
+  ├─ 08:00 UTC    GDELT 2.0 news           →  data/news_mentions.json
   └─ 09:00 UTC    YouTube Data API v3      →  data/youtube_mentions.json
       │
       │ commits to main
@@ -34,15 +35,16 @@ Required repository secrets:
 - `SERPAPI_KEY` — https://serpapi.com/manage-api-key
 - `YOUTUBE_API_KEY` — Google Cloud project with YouTube Data API v3 enabled
 
-Reddit uses the public JSON endpoints (no auth / no secret required), so
-no Reddit credentials to manage.
+GDELT (news) requires no authentication. Reddit was scoped out of v1
+(see "Reddit" note below).
 
 Files:
 - `config.py` — shared constants (topic list, timeframes)
-- `app.py` — Streamlit dashboard, reads the two snapshots
+- `app.py` — Streamlit dashboard, reads the three snapshots
 - `scripts/fetch_trends.py` — SerpApi runner
 - `scripts/fetch_youtube.py` — YouTube Data API runner
-- `.github/workflows/refresh-*.yml` — trends (manual) + youtube (daily cron)
+- `scripts/fetch_news.py` — GDELT 2.0 runner (no credentials needed)
+- `.github/workflows/refresh-*.yml` — trends (manual) + news + youtube (daily crons)
 - `requirements.txt` — runtime deps for Streamlit Cloud
 - `requirements-fetch.txt` — deps shared across fetch jobs
 
@@ -85,6 +87,9 @@ pip install -r requirements-fetch.txt
 # Trends
 export SERPAPI_KEY=your_key_here
 python scripts/fetch_trends.py
+
+# News (no credentials needed)
+python scripts/fetch_news.py
 
 # YouTube
 export YOUTUBE_API_KEY=...

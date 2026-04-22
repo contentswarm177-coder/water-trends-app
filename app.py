@@ -1,8 +1,9 @@
 """Water Quality Trends & Social Listening Dashboard.
 
-Reads two snapshots committed by GitHub Actions workflows:
+Reads three snapshots committed by GitHub Actions workflows:
 - data/trends.json            (Google Trends via SerpApi; manual-only refresh)
 - data/youtube_mentions.json  (YouTube Data API v3; daily cron)
+- data/news_mentions.json     (GDELT 2.0 news; daily cron)
 """
 from __future__ import annotations
 
@@ -20,6 +21,7 @@ from config import ALL_TOPICS, TIMEFRAMES, TOPIC_GROUPS
 DATA_DIR = Path(__file__).parent / "data"
 TRENDS_FILE = DATA_DIR / "trends.json"
 YOUTUBE_FILE = DATA_DIR / "youtube_mentions.json"
+NEWS_FILE = DATA_DIR / "news_mentions.json"
 
 
 @st.cache_data(show_spinner=False)
@@ -102,6 +104,7 @@ st.set_page_config(page_title="Water Quality Trends", layout="wide", page_icon="
 
 trends = load_json(str(TRENDS_FILE))
 youtube = load_json(str(YOUTUBE_FILE))
+news = load_json(str(NEWS_FILE))
 
 st.title("💧 Water Quality Trends")
 
@@ -116,7 +119,8 @@ if not trends:
 trends_refreshed = format_refreshed(trends.get("refreshed_at"))
 st.caption(
     f"**Trends:** {trends_refreshed} · "
-    f"**YouTube:** {format_refreshed(youtube.get('refreshed_at'))}"
+    f"**YouTube:** {format_refreshed(youtube.get('refreshed_at'))} · "
+    f"**News:** {format_refreshed(news.get('refreshed_at'))}"
 )
 
 with st.sidebar:
@@ -131,8 +135,9 @@ with st.sidebar:
                 st.markdown(f"- {t}")
     st.divider()
     st.caption(
-        "Sources — Trends: SerpApi (Google Trends engine). "
-        "YouTube: Data API v3, US region, English, quoted-phrase search + title/description filter."
+        "Sources — Trends: SerpApi (Google Trends). "
+        "YouTube: Data API v3, US + English, quoted-phrase + title filter. "
+        "News: GDELT 2.0, US sources + English, quoted-phrase + title filter."
     )
 
 df_trends = frame_for_timeframe(trends, timeframe)
@@ -140,8 +145,8 @@ if df_trends.empty:
     st.error(f"No trends data for timeframe `{timeframe}`.")
     st.stop()
 
-tab_overview, tab_compare, tab_youtube, tab_data = st.tabs(
-    ["Overview", "Compare", "YouTube", "Data"]
+tab_overview, tab_compare, tab_news, tab_youtube, tab_data = st.tabs(
+    ["Overview", "Compare", "News", "YouTube", "Data"]
 )
 
 with tab_overview:
@@ -172,6 +177,75 @@ with tab_compare:
         st.plotly_chart(overlay_chart(df_trends[selection]), use_container_width=True)
     else:
         st.info("Select at least one topic to compare.")
+
+with tab_news:
+    if not news:
+        st.warning("No news snapshot yet. Trigger the **Refresh news mentions** workflow.")
+    else:
+        mentions = news.get("mentions", [])
+        st.markdown(
+            f"{len(mentions):,} unique US/English news articles from the last "
+            f"{news.get('timespan', '7d')} mentioning tracked topics (GDELT 2.0)."
+        )
+        kw_filter = st.multiselect(
+            "Filter by keyword", ALL_TOPICS, default=[], key="news_kw"
+        )
+        filtered = [
+            m for m in mentions
+            if not kw_filter or any(k in m.get("matched_keywords", []) for k in kw_filter)
+        ]
+
+        col_chart, col_counts = st.columns([3, 1])
+        with col_chart:
+            vol_df = daily_volume_df(filtered, "published_at")
+            if not vol_df.empty:
+                st.plotly_chart(volume_chart(vol_df, "Articles per day"), use_container_width=True)
+            else:
+                st.info("No articles match the filter.")
+        with col_counts:
+            st.markdown("**Articles per keyword**")
+            counts = (
+                pd.Series(news.get("by_keyword_count", {}))
+                .sort_values(ascending=False)
+                .rename("count")
+                .to_frame()
+            )
+            st.dataframe(counts, use_container_width=True, height=360)
+
+        st.divider()
+        st.subheader("Top domains")
+        from collections import Counter
+        domain_counts = Counter(m.get("domain") for m in filtered if m.get("domain"))
+        if domain_counts:
+            domain_df = pd.DataFrame(
+                domain_counts.most_common(15), columns=["Domain", "Articles"]
+            )
+            st.dataframe(domain_df, hide_index=True, use_container_width=False)
+
+        st.divider()
+        st.subheader("Recent articles")
+        top_n = st.slider("Articles to show", 5, 100, 30, key="news_topn")
+        if filtered:
+            articles_df = pd.DataFrame(filtered)
+            articles_df["published"] = pd.to_datetime(
+                articles_df["published_at"], utc=True, errors="coerce"
+            )
+            articles_df["matched_keywords"] = articles_df["matched_keywords"].apply(", ".join)
+            articles_df = articles_df.head(top_n)
+            st.dataframe(
+                articles_df[
+                    ["published", "domain", "title", "matched_keywords", "url"]
+                ],
+                column_config={
+                    "published": st.column_config.DatetimeColumn("Published", format="MMM D, HH:mm"),
+                    "domain": "Source",
+                    "title": "Headline",
+                    "matched_keywords": "Keywords",
+                    "url": st.column_config.LinkColumn("Link", display_text="open"),
+                },
+                hide_index=True,
+                use_container_width=True,
+            )
 
 with tab_youtube:
     if not youtube:
@@ -249,6 +323,15 @@ with tab_data:
         file_name=f"water_trends_{timeframe.replace(' ', '_')}.csv",
         mime="text/csv",
     )
+    if news:
+        st.divider()
+        st.markdown(f"**News mentions JSON** · {news.get('total_unique_mentions', 0)} articles")
+        st.download_button(
+            "Download News JSON",
+            data=json.dumps(news, indent=2).encode("utf-8"),
+            file_name="news_mentions.json",
+            mime="application/json",
+        )
     if youtube:
         st.divider()
         st.markdown(f"**YouTube mentions JSON** · {youtube.get('total_unique_mentions', 0)} videos")
