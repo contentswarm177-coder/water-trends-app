@@ -211,16 +211,6 @@ with tab_news:
             st.dataframe(counts, use_container_width=True, height=360)
 
         st.divider()
-        st.subheader("Top domains")
-        from collections import Counter
-        domain_counts = Counter(m.get("domain") for m in filtered if m.get("domain"))
-        if domain_counts:
-            domain_df = pd.DataFrame(
-                domain_counts.most_common(15), columns=["Domain", "Articles"]
-            )
-            st.dataframe(domain_df, hide_index=True, use_container_width=False)
-
-        st.divider()
         st.subheader("Articles")
         st.caption(
             "Sorted by relevance score. Syndicated reposts are collapsed; **Sites** "
