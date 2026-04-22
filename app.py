@@ -135,7 +135,7 @@ if df_trends.empty:
     st.stop()
 
 tab_search, tab_news, tab_youtube = st.tabs(
-    ["Search Overview", "News", "YouTube"]
+    ["Web Search", "News", "YouTube"]
 )
 
 with tab_search:
