@@ -1,0 +1,4 @@
+streamlit>=1.32
+pytrends>=4.9.2
+pandas>=2.1
+plotly>=5.20
