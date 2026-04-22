@@ -1,8 +1,11 @@
 name: Refresh news mentions
 
 on:
-  schedule:
-    - cron: "0 8 * * *"  # 08:00 UTC daily
+  # Scheduled refresh is disabled — news is refreshed on-demand via the
+  # "refresh the news" command in a Claude Code session (runs fetch +
+  # classification together, keeping scores and data in sync).
+  # schedule:
+  #   - cron: "0 8 * * *"
   workflow_dispatch:
 
 permissions:

@@ -39,6 +39,32 @@ def format_refreshed(iso: str | None) -> str:
     return datetime.fromisoformat(iso).strftime("%Y-%m-%d %H:%M UTC")
 
 
+def freshness_banner(iso: str | None, label: str, refresh_hint: str) -> None:
+    """Show a 'Last refreshed' banner with age coloring."""
+    if not iso:
+        st.warning(f"**{label} not yet fetched.** {refresh_hint}")
+        return
+    refreshed_at = datetime.fromisoformat(iso)
+    if refreshed_at.tzinfo is None:
+        refreshed_at = refreshed_at.replace(tzinfo=timezone.utc)
+    age = datetime.now(timezone.utc) - refreshed_at
+    hours = age.total_seconds() / 3600
+    if hours < 1:
+        ago = f"{int(age.total_seconds() / 60)} min ago"
+    elif hours < 48:
+        ago = f"{int(hours)} hours ago"
+    else:
+        ago = f"{int(hours / 24)} days ago"
+    display = refreshed_at.strftime("%Y-%m-%d %H:%M UTC")
+    msg = f"**{label} last refreshed:** {display}  ·  {ago}  ·  {refresh_hint}"
+    if hours < 48:
+        st.success(msg)
+    elif hours < 168:
+        st.warning(msg)
+    else:
+        st.error(msg)
+
+
 def frame_for_timeframe(snapshot: dict, timeframe: str) -> pd.DataFrame:
     tf = snapshot.get("timeframes", {}).get(timeframe)
     if not tf:
@@ -120,6 +146,11 @@ tab_search, tab_news, tab_youtube = st.tabs(
 )
 
 with tab_search:
+    freshness_banner(
+        trends.get("refreshed_at"),
+        "Web Search trends",
+        "Ask Claude to 'refresh the web search' to update.",
+    )
     timeframe_label = st.selectbox(
         "Time range", list(TIMEFRAMES.keys()), index=1, key="search_timeframe"
     )
@@ -138,8 +169,13 @@ with tab_search:
                     st.plotly_chart(sparkline(df_trends[topic], topic), use_container_width=True)
 
 with tab_news:
+    freshness_banner(
+        news.get("classified_at") or news.get("refreshed_at"),
+        "News",
+        "Ask Claude to 'refresh the news' to fetch + rescore.",
+    )
     if not news:
-        st.warning("No news snapshot yet. Trigger the **Refresh news mentions** workflow.")
+        st.info("Ask Claude in a session to refresh the news and seed this view.")
     else:
         mentions = news.get("mentions", [])
         header_line = (
