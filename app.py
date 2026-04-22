@@ -134,8 +134,8 @@ if df_trends.empty:
     st.error(f"No trends data for timeframe `{timeframe}`.")
     st.stop()
 
-tab_search, tab_news, tab_youtube, tab_data = st.tabs(
-    ["Search Overview", "News", "YouTube", "Data"]
+tab_search, tab_news, tab_youtube = st.tabs(
+    ["Search Overview", "News", "YouTube"]
 )
 
 with tab_search:
@@ -287,30 +287,3 @@ with tab_youtube:
                 use_container_width=True,
             )
 
-with tab_data:
-    st.markdown("Raw trends data for the selected timeframe. Download for downstream use.")
-    st.dataframe(df_trends, use_container_width=True)
-    st.download_button(
-        "Download trends CSV",
-        data=df_trends.to_csv().encode("utf-8"),
-        file_name=f"water_trends_{timeframe.replace(' ', '_')}.csv",
-        mime="text/csv",
-    )
-    if news:
-        st.divider()
-        st.markdown(f"**News mentions JSON** · {news.get('total_unique_mentions', 0)} articles")
-        st.download_button(
-            "Download News JSON",
-            data=json.dumps(news, indent=2).encode("utf-8"),
-            file_name="news_mentions.json",
-            mime="application/json",
-        )
-    if youtube:
-        st.divider()
-        st.markdown(f"**YouTube mentions JSON** · {youtube.get('total_unique_mentions', 0)} videos")
-        st.download_button(
-            "Download YouTube JSON",
-            data=json.dumps(youtube, indent=2).encode("utf-8"),
-            file_name="youtube_mentions.json",
-            mime="application/json",
-        )
