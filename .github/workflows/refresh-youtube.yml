@@ -1,0 +1,41 @@
+name: Refresh YouTube mentions
+
+on:
+  schedule:
+    - cron: "0 9 * * *"  # 09:00 UTC daily (after reddit)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install fetch dependencies
+        run: pip install -r requirements-fetch.txt
+
+      - name: Fetch YouTube mentions
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: python scripts/fetch_youtube.py
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/youtube_mentions.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: refresh YouTube mentions"
+            git pull --rebase origin main
+            git push
+          fi
