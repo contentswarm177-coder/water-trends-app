@@ -15,12 +15,10 @@ TOPIC_GROUPS: dict[str, list[str]] = {
     "Context / source": [
         "well water testing",
         "hard water",
-        "tap water safety",
         "bottled water",
     ],
-    "Solutions": [
+    "Product Categories": [
         "water filter",
-        "water filtration",
         "reverse osmosis",
         "water softener",
         "whole house water filter",
