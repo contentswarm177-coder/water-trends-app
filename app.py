@@ -138,6 +138,11 @@ st.markdown(
         font-size: 1.3rem !important;
         font-weight: 600 !important;
     }
+    .viewerBadge_container__1S137,
+    [data-testid="stViewerBadge"],
+    [class*="viewerBadge_container"] {
+        display: none !important;
+    }
     </style>
     """,
     unsafe_allow_html=True,
