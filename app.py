@@ -1,6 +1,6 @@
 """Water Quality Trends & Social Listening Dashboard.
 
-Reads three snapshots committed by GitHub Actions workflows:
+Reads three snapshots committed by refresh agents:
 - data/trends.json            (Google Trends via SerpApi; manual-only refresh)
 - data/youtube_mentions.json  (YouTube Data API v3; daily cron)
 - data/news_mentions.json     (GDELT 2.0 news; daily cron)
@@ -154,10 +154,7 @@ st.caption("Internal Use Only.  Semi-Stable Prototype")
 
 if not trends:
     st.error("No trends snapshot found at `data/trends.json`.")
-    st.info(
-        "Refreshed daily by the **Refresh Google Trends data** GitHub Actions "
-        "workflow. Trigger it manually if this is a fresh deploy."
-    )
+    st.info("Refreshed by the **Web Search Agent**. Trigger it if this is a fresh deploy.")
     st.stop()
 
 trends_refreshed = format_refreshed(trends.get("refreshed_at"))
@@ -175,7 +172,7 @@ with tab_search:
     freshness_banner(
         trends.get("refreshed_at"),
         "Web Search trends",
-        "Ask Eric to 'refresh the web search' to update.",
+        "refreshed by Web Search Agent",
     )
     timeframe_label = st.selectbox(
         "Time range", list(TIMEFRAMES.keys()), index=1, key="search_timeframe"
@@ -198,10 +195,10 @@ with tab_news:
     freshness_banner(
         news.get("classified_at") or news.get("refreshed_at"),
         "News",
-        "Ask Eric to 'refresh the news' to fetch + rescore.",
+        "refreshed by News Agent",
     )
     if not news:
-        st.info("Ask Claude in a session to refresh the news and seed this view.")
+        st.info("Trigger the **News Agent** to seed this view.")
     else:
         mentions = news.get("mentions", [])
         header_line = (
@@ -320,10 +317,10 @@ with tab_youtube:
     freshness_banner(
         youtube.get("refreshed_at"),
         "YouTube",
-        "Refreshed daily by the **Refresh YouTube mentions** GitHub Actions workflow.",
+        "refreshed by YouTube Agent",
     )
     if not youtube:
-        st.warning("No YouTube snapshot yet. Trigger the **Refresh YouTube mentions** workflow.")
+        st.warning("No YouTube snapshot yet. Trigger the **YouTube Agent** to seed this view.")
     else:
         mentions = youtube.get("mentions", [])
         st.markdown(
