@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-05-04T12:51:33+00:00",
+  "refreshed_at": "2026-05-04T13:49:25+00:00",
   "keywords": [
     "PFAS",
     "forever chemicals",
@@ -20,27 +20,44 @@
     "whole house water filter"
   ],
   "timespan": "7d",
-  "total_unique_mentions": 174,
+  "total_unique_mentions": 185,
   "by_keyword_count": {
     "PFAS": 0,
-    "forever chemicals": 74,
-    "lead in water": 0,
+    "forever chemicals": 73,
+    "lead in water": 3,
     "arsenic in water": 3,
-    "nitrate in water": 3,
+    "nitrate in water": 2,
     "microplastics": 55,
     "fluoride in water": 2,
     "chromium 6": 0,
     "well water testing": 3,
-    "hard water": 7,
+    "hard water": 8,
     "tap water safety": 0,
     "bottled water": 0,
-    "water filter": 0,
+    "water filter": 13,
     "water filtration": 24,
     "reverse osmosis": 14,
     "water softener": 4,
     "whole house water filter": 0
   },
   "mentions": [
+    {
+      "id": "https://www.myleaderpaper.com/lifestyles/health/health-department-food-inspections-for-week-of-april-19/article_d181a286-ffef-46b8-acdd-12a85a596b3d.html",
+      "domain": "myleaderpaper.com",
+      "title": "Health Department food inspections for week of April 19 | Health",
+      "url": "https://www.myleaderpaper.com/lifestyles/health/health-department-food-inspections-for-week-of-april-19/article_d181a286-ffef-46b8-acdd-12a85a596b3d.html",
+      "published_at": "2026-05-04T13:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.newyork1.vip.townnews.com/myleaderpaper.com/content/tncms/assets/v3/editorial/6/1b/61bf3348-ce08-11ef-82c4-5b8574ec56b2/677eef8a26562.image.jpg?crop=402%2C402%2C0%2C98",
+      "matched_keywords": [
+        "hard water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "myleaderpaper.com"
+      ]
+    },
     {
       "id": "https://communitynewspapers.com/kendallgazette/baynanza-cleanup-mobilized-3500-volunteers-to-collect-over-20000-pounds-of-debris/",
       "domain": "communitynewspapers.com",
@@ -73,6 +90,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "tillamookheadlightherald.com"
+      ]
+    },
+    {
+      "id": "https://www.baltimoresun.com/2026/05/03/wembanyama-gobert-set-to-match-wits-as-spurs-timberwolves-meet-in-west-semifinal-matchup/",
+      "domain": "baltimoresun.com",
+      "title": "Wembanyama , Gobert set to match wits as Spurs , Timberwolves meet in West semifinal matchup",
+      "url": "https://www.baltimoresun.com/2026/05/03/wembanyama-gobert-set-to-match-wits-as-spurs-timberwolves-meet-in-west-semifinal-matchup/",
+      "published_at": "2026-05-04T00:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.baltimoresun.com/wp-content/uploads/2026/05/Trail_Blazers_Spurs_Basketball_294_7-1.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "baltimoresun.com"
       ]
     },
     {
@@ -229,6 +263,40 @@
       ]
     },
     {
+      "id": "https://www.governing.com/community/benton-harbor-a-striking-resemblance-to-flints-water-crisis",
+      "domain": "governing.com",
+      "title": "Benton Harbor : A Striking Resemblance to Flint Water Crisis",
+      "url": "https://www.governing.com/community/benton-harbor-a-striking-resemblance-to-flints-water-crisis",
+      "published_at": "2026-05-02T23:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "lead in water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "governing.com"
+      ]
+    },
+    {
+      "id": "https://www.delawarepublic.org/education/2026-05-02/heres-what-happened-in-during-the-dept-of-ed-bond-bill-hearing",
+      "domain": "delawarepublic.org",
+      "title": "Here what happened in during the Dept . of Ed . Bond Bill hearing",
+      "url": "https://www.delawarepublic.org/education/2026-05-02/heres-what-happened-in-during-the-dept-of-ed-bond-bill-hearing",
+      "published_at": "2026-05-02T23:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "http://npr-brightspot.s3.amazonaws.com/88/09/9a82d1fd46fc8d647c927d22c6ac/img-5639.jpg",
+      "matched_keywords": [
+        "lead in water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "delawarepublic.org"
+      ]
+    },
+    {
       "id": "https://wibc.com/885755/google-to-work-with-fort-wayne-on-water-saving-project/",
       "domain": "wibc.com",
       "title": "Google to Work with Fort Wayne on Water Saving Project",
@@ -347,6 +415,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "mariettatimes.com"
+      ]
+    },
+    {
+      "id": "https://www.tribtoday.com/news/local-news/2026/05/hubbard-enacts-plan-to-get-the-lead-out/",
+      "domain": "tribtoday.com",
+      "title": "Hubbard enacts plan to get the lead out | News , Sports , Jobs",
+      "url": "https://www.tribtoday.com/news/local-news/2026/05/hubbard-enacts-plan-to-get-the-lead-out/",
+      "published_at": "2026-05-02T05:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "http://d14e0irai0gcaa.cloudfront.net/www.tribtoday.com/images/2016/10/11191558/fblike.jpg",
+      "matched_keywords": [
+        "lead in water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "tribtoday.com"
       ]
     },
     {
@@ -540,6 +625,23 @@
       ]
     },
     {
+      "id": "https://atlantablackstar.com/2026/05/01/international-travel-cheat-code-first-stop-dubai/",
+      "domain": "atlantablackstar.com",
+      "title": "International Travel Cheat Code : First Stop Dubai",
+      "url": "https://atlantablackstar.com/2026/05/01/international-travel-cheat-code-first-stop-dubai/",
+      "published_at": "2026-05-01T19:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://atlantablackstar.com/wp-content/uploads/2029/05/Your-paragraph-text-2.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "atlantablackstar.com"
+      ]
+    },
+    {
       "id": "https://wtug.com/ixp/962/p/tuscaloosa-water-launches-lake-photo-contest/",
       "domain": "wtug.com",
       "title": "Tuscaloosa Water Launches Lake Photo Contest",
@@ -591,6 +693,23 @@
         "ocregister.com",
         "presstelegram.com",
         "whittierdailynews.com"
+      ]
+    },
+    {
+      "id": "https://www.ign.com/wikis/arc-raiders/Avian_Alarm_Project_Guide_and_How_to_Complete",
+      "domain": "ign.com",
+      "title": "Avian Alarm Project Guide and How to Complete - Arc Raiders Guide",
+      "url": "https://www.ign.com/wikis/arc-raiders/Avian_Alarm_Project_Guide_and_How_to_Complete",
+      "published_at": "2026-05-01T12:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://oyster.ignimgs.com/mediawiki/apis.ign.com/arc-raiders/a/a7/Access_Project_Page_ARC_Raiders.png",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "ign.com"
       ]
     },
     {
@@ -1413,6 +1532,7 @@
       "source_country": "United States",
       "thumbnail": "https://i.ytimg.com/vi/dCF2wCQG308/maxresdefault.jpg",
       "matched_keywords": [
+        "water filter",
         "water filtration"
       ],
       "syndicated_count": 1,
@@ -1502,6 +1622,7 @@
       "source_country": "United States",
       "thumbnail": "https://hips.hearstapps.com/hmg-prod/images/23cac7bc-c73d-46bc-9aa7-7ebba5afa318.jpeg?crop=1xw:0.357xh;0xw,0.268xh",
       "matched_keywords": [
+        "water filter",
         "water filtration"
       ],
       "syndicated_count": 1,
@@ -1773,7 +1894,8 @@
       "source_country": "United States",
       "thumbnail": "https://media-cdn.socastsrm.com/wordpress/wp-content/blogs.dir/3848/files/2025/05/good-news.png",
       "matched_keywords": [
-        "microplastics"
+        "microplastics",
+        "water filter"
       ],
       "syndicated_count": 1,
       "syndicated_domains": [
@@ -2193,6 +2315,40 @@
       ]
     },
     {
+      "id": "https://roarmag.org/Water-Pipe-Filter-Inline-Water-Filter-Water-Pump-b-928566",
+      "domain": "roarmag.org",
+      "title": "2 Pvc Check Valve Water Pipe Filter Inline Water Filter Water Pump 2 Inch Pvc Check Valve",
+      "url": "https://roarmag.org/Water-Pipe-Filter-Inline-Water-Filter-Water-Pump-b-928566",
+      "published_at": "2026-04-29T00:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://m.media-amazon.com/images/I/51MXJc0WbxS._UF1000,1000_QL80_.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "roarmag.org"
+      ]
+    },
+    {
+      "id": "https://www.naturalnews.com/2026-04-28-chronic-nerve-pain-natural-ways-heal-mitochondria.html",
+      "domain": "naturalnews.com",
+      "title": "Ease Chronic Nerve Pain : 4 Natural Ways to Heal Your Mitochondria \u2013 NaturalNews . com",
+      "url": "https://www.naturalnews.com/2026-04-28-chronic-nerve-pain-natural-ways-heal-mitochondria.html",
+      "published_at": "2026-04-29T00:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.naturalnews.com/wp-content/uploads/sites/91/2026/04/mitochondrial-health-chronic-nerve-pain-atp-production-296-original.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "naturalnews.com"
+      ]
+    },
+    {
       "id": "https://magazines.inmaricopa.com/view/210009235/",
       "domain": "magazines.inmaricopa.com",
       "title": "2026 May issue of InMaricopa Magazine",
@@ -2377,6 +2533,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "pagosadailypost.com"
+      ]
+    },
+    {
+      "id": "https://www.thedailymeal.com/2158023/costco-kitchen-gadgets-under-one-hundred/",
+      "domain": "thedailymeal.com",
+      "title": "16 Costco Kitchen Gadgets Under $100 Worth Every Penny",
+      "url": "https://www.thedailymeal.com/2158023/costco-kitchen-gadgets-under-one-hundred/",
+      "published_at": "2026-04-28T18:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.thedailymeal.com/img/gallery/16-costco-kitchen-gadgets-under-100-worth-every-penny/l-intro-1777300012.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "thedailymeal.com"
       ]
     },
     {
@@ -2744,6 +2917,7 @@
       "thumbnail": "https://i.dailymail.com/1s/2026/04/28/02/108205329-0-image-m-11_1777340804585.jpg",
       "matched_keywords": [
         "forever chemicals",
+        "water filter",
         "water filtration"
       ],
       "syndicated_count": 1,
@@ -2766,6 +2940,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "newsbusters.org"
+      ]
+    },
+    {
+      "id": "https://www.slashgear.com/2156073/camping-hiking-overlooked-tools-gadget-checklist/",
+      "domain": "slashgear.com",
+      "title": "5 Helpful Tools And Gadgets Campers And Hikers Tend To Forget",
+      "url": "https://www.slashgear.com/2156073/camping-hiking-overlooked-tools-gadget-checklist/",
+      "published_at": "2026-04-28T03:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.slashgear.com/img/gallery/5-helpful-tools-and-gadgets-campers-and-hikers-tend-to-forget/l-intro-1777019934.jpg",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "slashgear.com"
       ]
     },
     {
@@ -2869,6 +3060,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "contractormag.com"
+      ]
+    },
+    {
+      "id": "https://www.luxurytravelmagazine.com/news-articles/adventure-travel-safety-essentials-what-to-pack-for-high-risk-trips",
+      "domain": "luxurytravelmagazine.com",
+      "title": "Adventure Travel Safety Essentials : What to Pack for High - Risk Trips",
+      "url": "https://www.luxurytravelmagazine.com/news-articles/adventure-travel-safety-essentials-what-to-pack-for-high-risk-trips",
+      "published_at": "2026-04-27T21:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "luxurytravelmagazine.com"
       ]
     },
     {
@@ -3050,6 +3258,23 @@
       ]
     },
     {
+      "id": "https://elclasificado.com/losangeles/empleos/vendedores/promotions-in-gyms-and-events-montebello-21103699",
+      "domain": "elclasificado.com",
+      "title": "Promotions in Gyms and events",
+      "url": "https://elclasificado.com/losangeles/empleos/vendedores/promotions-in-gyms-and-events-montebello-21103699",
+      "published_at": "2026-04-27T16:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://elclasificado.com/Content/Public/Social/el-clasificado.png",
+      "matched_keywords": [
+        "water filter"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "elclasificado.com"
+      ]
+    },
+    {
       "id": "https://eos.org/articles/tracing-the-path-of-pfas-across-antarctica",
       "domain": "eos.org",
       "title": "Tracing the Path of PFAS Across Antarctica",
@@ -3149,40 +3374,6 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "communityadvocate.com"
-      ]
-    },
-    {
-      "id": "https://www.newson6.com/tulsa-oklahoma-news/hazardous-chemical-detected-oklahoma-north-america",
-      "domain": "newson6.com",
-      "title": "Industrial chemical detected in Oklahoma air , first known case in North America",
-      "url": "https://www.newson6.com/tulsa-oklahoma-news/hazardous-chemical-detected-oklahoma-north-america",
-      "published_at": "2026-04-27T13:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://fueltools-prod01-public.fuelmedia.io/59e240fa-1ef9-4713-94e5-5289dca38660/20260427/a4ef46f5-0d98-4802-80ad-52ba18439cd9/639128855108917701_thumbnail.png",
-      "matched_keywords": [
-        "forever chemicals"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "newson6.com"
-      ]
-    },
-    {
-      "id": "https://insideclimatenews.org/news/27042026/agricultural-nitrate-water-pollution/",
-      "domain": "insideclimatenews.org",
-      "title": "Nearly One - Fifth of Americans Are Consuming Water With High Levels of Nitrates",
-      "url": "https://insideclimatenews.org/news/27042026/agricultural-nitrate-water-pollution/",
-      "published_at": "2026-04-27T13:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://insideclimatenews.org/wp-content/uploads/2026/04/GettyImages-603968516-1024x682.jpg",
-      "matched_keywords": [
-        "nitrate in water"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "insideclimatenews.org"
       ]
     }
   ]
