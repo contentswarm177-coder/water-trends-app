@@ -317,6 +317,11 @@ with tab_news:
             )
 
 with tab_youtube:
+    freshness_banner(
+        youtube.get("refreshed_at"),
+        "YouTube",
+        "Refreshed daily by the **Refresh YouTube mentions** GitHub Actions workflow.",
+    )
     if not youtube:
         st.warning("No YouTube snapshot yet. Trigger the **Refresh YouTube mentions** workflow.")
     else:
