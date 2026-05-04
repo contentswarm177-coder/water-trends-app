@@ -146,7 +146,7 @@ news = load_json(str(NEWS_SCORED_FILE)) or load_json(str(NEWS_RAW_FILE))
 news_is_scored = bool(news.get("classified_at"))
 
 st.title("💧 Science & Policy Insights Group Listening Tool")
-st.caption("Internal Use Only")
+st.caption("Internal Use Only.  Semi-Stable Prototype")
 
 if not trends:
     st.error("No trends snapshot found at `data/trends.json`.")
@@ -205,7 +205,7 @@ with tab_news:
             "(GDELT 2.0, US + English)."
         )
         if news_is_scored:
-            header_line += "  **Pattern 1 scored** — relevance, angle, notability by Claude."
+            header_line += "  **Pattern 1 scored** — relevance, angle, notability by News Relevancy Agent."
         st.markdown(header_line)
 
         filter_cols = st.columns([2, 1, 1])
