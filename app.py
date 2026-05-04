@@ -26,11 +26,15 @@ NEWS_RAW_FILE = DATA_DIR / "news_mentions.json"
 
 
 @st.cache_data(show_spinner=False)
+def _load_json_cached(path_str: str, mtime: float) -> dict:
+    return json.loads(Path(path_str).read_text())
+
+
 def load_json(path_str: str) -> dict:
     path = Path(path_str)
     if not path.exists():
         return {}
-    return json.loads(path.read_text())
+    return _load_json_cached(path_str, path.stat().st_mtime)
 
 
 def format_refreshed(iso: str | None) -> str:
