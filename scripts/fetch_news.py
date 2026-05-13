@@ -164,9 +164,7 @@ def main() -> int:
 
     by_id: dict[str, dict] = {}
 
-    for keyword in ALL_TOPICS:
-        print(f"  '{keyword}'…", end="", flush=True)
-        raw_articles = search_keyword(keyword)
+    def ingest(keyword: str, raw_articles: list[dict]) -> int:
         normalized = [a for a in (normalize_article(r) for r in raw_articles) if a]
         for art in normalized:
             if art["id"] in by_id:
@@ -175,8 +173,26 @@ def main() -> int:
             else:
                 art["matched_keywords"] = [keyword]
                 by_id[art["id"]] = art
-        print(f" {len(normalized)} articles", flush=True)
+        return len(normalized)
+
+    zero_result_keywords: list[str] = []
+    for keyword in ALL_TOPICS:
+        print(f"  '{keyword}'…", end="", flush=True)
+        count = ingest(keyword, search_keyword(keyword))
+        print(f" {count} articles", flush=True)
+        if count == 0:
+            zero_result_keywords.append(keyword)
         time.sleep(KEYWORD_DELAY_SEC)
+
+    # GDELT sometimes drops the first request of a session; retry anything
+    # that came back empty now that the connection is warm.
+    if zero_result_keywords:
+        print(f"Retrying {len(zero_result_keywords)} zero-result keyword(s)…", flush=True)
+        for keyword in zero_result_keywords:
+            print(f"  '{keyword}'…", end="", flush=True)
+            count = ingest(keyword, search_keyword(keyword))
+            print(f" {count} articles", flush=True)
+            time.sleep(KEYWORD_DELAY_SEC)
 
     mentions = list(by_id.values())
     raw_count = len(mentions)
