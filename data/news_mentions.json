@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-05-13T03:54:25+00:00",
+  "refreshed_at": "2026-05-13T04:12:11+00:00",
   "keywords": [
     "PFAS",
     "forever chemicals",
@@ -18,7 +18,7 @@
     "whole house water filter"
   ],
   "timespan": "7d",
-  "total_unique_mentions": 209,
+  "total_unique_mentions": 210,
   "by_keyword_count": {
     "PFAS": 0,
     "forever chemicals": 49,
@@ -29,7 +29,7 @@
     "fluoride in water": 3,
     "chromium 6": 1,
     "well water testing": 4,
-    "hard water": 8,
+    "hard water": 9,
     "bottled water": 98,
     "water filter": 14,
     "reverse osmosis": 20,
@@ -37,6 +37,23 @@
     "whole house water filter": 0
   },
   "mentions": [
+    {
+      "id": "https://www.fox13now.com/news/utah-drought/are-car-washes-wasting-water-during-drought-restrictions-experts-say-its-more-complicated-than-it-looks",
+      "domain": "fox13now.com",
+      "title": "Are car washes wasting water during drought restrictions ? ",
+      "url": "https://www.fox13now.com/news/utah-drought/are-car-washes-wasting-water-during-drought-restrictions-experts-say-its-more-complicated-than-it-looks",
+      "published_at": "2026-05-13T03:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://cf.cdn.uplynk.com/ause1/slices/15b/ef205c0e5ea14d77944cbd6904335118/15b7741fb98e4a4dbb3ab81b85f795cd/poster_80eb7ae31613454886d207bb882fdc97.jpg",
+      "matched_keywords": [
+        "hard water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "fox13now.com"
+      ]
+    },
     {
       "id": "https://westchester.news12.com/turf-battle-in-hastings-parents-challenge-school-over-pfas-concerns",
       "domain": "westchester.news12.com",
