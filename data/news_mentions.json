@@ -1,5 +1,5 @@
 {
-  "refreshed_at": "2026-05-13T04:12:11+00:00",
+  "refreshed_at": "2026-05-13T16:53:11+00:00",
   "keywords": [
     "PFAS",
     "forever chemicals",
@@ -18,25 +18,212 @@
     "whole house water filter"
   ],
   "timespan": "7d",
-  "total_unique_mentions": 210,
+  "total_unique_mentions": 211,
   "by_keyword_count": {
     "PFAS": 0,
-    "forever chemicals": 49,
+    "forever chemicals": 47,
     "lead in water": 2,
-    "arsenic in water": 2,
+    "arsenic in water": 3,
     "nitrate in water": 5,
-    "microplastics": 36,
-    "fluoride in water": 3,
+    "microplastics": 38,
+    "fluoride in water": 2,
     "chromium 6": 1,
-    "well water testing": 4,
-    "hard water": 9,
-    "bottled water": 98,
-    "water filter": 14,
+    "well water testing": 3,
+    "hard water": 10,
+    "bottled water": 95,
+    "water filter": 13,
     "reverse osmosis": 20,
-    "water softener": 2,
+    "water softener": 3,
     "whole house water filter": 0
   },
   "mentions": [
+    {
+      "id": "https://www.azom.com/article.aspx?ArticleID=25265",
+      "domain": "azom.com",
+      "title": "Industrial Applications of FTIR and Raman Spectroscopy",
+      "url": "https://www.azom.com/article.aspx?ArticleID=25265",
+      "published_at": "2026-05-13T15:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.azom.com/images/Article_Images/ImageForArticle_25265_17785818767301118.jpg",
+      "matched_keywords": [
+        "microplastics"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "azom.com"
+      ]
+    },
+    {
+      "id": "https://eturbonews.com/green-envy/",
+      "domain": "eturbonews.com",
+      "title": "Green with Envy",
+      "url": "https://eturbonews.com/green-envy/",
+      "published_at": "2026-05-13T14:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://eturbonews.com/wp-admin/admin-ajax.php?action=rank_math_overlay_thumb&id=3117456&type=eturbonews&hash=ea27d2963659473f47f18e16a407e4e7",
+      "matched_keywords": [
+        "bottled water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "eturbonews.com"
+      ]
+    },
+    {
+      "id": "https://engineeringevil.com/2012/10/01/arsenic-linked-to-cardiovascular-disease-at-federally-approved-levels-for-drinking-water/",
+      "domain": "engineeringevil.com",
+      "title": "Arsenic linked to cardiovascular disease at federally - approved levels for drinking water",
+      "url": "https://engineeringevil.com/2012/10/01/arsenic-linked-to-cardiovascular-disease-at-federally-approved-levels-for-drinking-water/",
+      "published_at": "2026-05-13T13:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://engineeringevil.com/wp-content/uploads/2019/03/cropped-ev2.png",
+      "matched_keywords": [
+        "arsenic in water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "engineeringevil.com"
+      ]
+    },
+    {
+      "id": "https://today.uconn.edu/2026/05/a-hemp-based-plastic-offers-a-greener-alternative-to-plastic-packaging/",
+      "domain": "today.uconn.edu",
+      "title": "A Hemp - based Plastic Offers a Greener Alternative to Plastic Packaging",
+      "url": "https://today.uconn.edu/2026/05/a-hemp-based-plastic-offers-a-greener-alternative-to-plastic-packaging/",
+      "published_at": "2026-05-13T13:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://today.uconn.edu/wp-content/uploads/2026/05/AdobeStock_305306567-scaled.jpeg",
+      "matched_keywords": [
+        "microplastics"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "today.uconn.edu"
+      ]
+    },
+    {
+      "id": "https://www.prnewswire.com/news-releases/oceanwell-advances-to-xprize-water-scarcity-semifinals-302770192.html",
+      "domain": "prnewswire.com",
+      "title": "OceanWell Advances to XPRIZE Water Scarcity Semifinals",
+      "url": "https://www.prnewswire.com/news-releases/oceanwell-advances-to-xprize-water-scarcity-semifinals-302770192.html",
+      "published_at": "2026-05-13T11:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "reverse osmosis"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "prnewswire.com"
+      ]
+    },
+    {
+      "id": "https://stockhouse.com/news/the-market-online-news/2026/05/13/quench-your-portfolio-with-this-top-water-stock",
+      "domain": "stockhouse.com",
+      "title": "Quench your portfolio with this top water stock | 2026 - 05 - 13 | Investing News",
+      "url": "https://stockhouse.com/news/the-market-online-news/2026/05/13/quench-your-portfolio-with-this-top-water-stock",
+      "published_at": "2026-05-13T11:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "reverse osmosis"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "stockhouse.com"
+      ]
+    },
+    {
+      "id": "https://www.theunion.com/news/community/ideas-opinions-amy-cobden-builders-for-nevada-city-why-im-voting-for-micayla-sortland-and/article_3dac149a-f051-4cd4-a049-95b5d0c9d69f.html",
+      "domain": "theunion.com",
+      "title": "Ideas & Opinions Amy Cobden : Builders for Nevada City : Why Im voting for Micayla Sortland and Adam Kline",
+      "url": "https://www.theunion.com/news/community/ideas-opinions-amy-cobden-builders-for-nevada-city-why-im-voting-for-micayla-sortland-and/article_3dac149a-f051-4cd4-a049-95b5d0c9d69f.html",
+      "published_at": "2026-05-13T09:30:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.chicago2.vip.townnews.com/theunion.com/content/tncms/custom/image/895f2392-650d-11ed-9099-fb46053bbb4c.png",
+      "matched_keywords": [
+        "hard water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "theunion.com"
+      ]
+    },
+    {
+      "id": "https://www.yourtango.com/self/commonplace-things-people-with-morals-never-do",
+      "domain": "yourtango.com",
+      "title": "People With Actual Morals Almost Never Do These 11 Now Commonplace Things",
+      "url": "https://www.yourtango.com/self/commonplace-things-people-with-morals-never-do",
+      "published_at": "2026-05-13T08:45:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.yourtango.com/sites/default/files/image_blog/2026-05/people-with-actual-morals-almost-never-do-these-now-commonplace-things.png",
+      "matched_keywords": [
+        "microplastics"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "yourtango.com"
+      ]
+    },
+    {
+      "id": "https://www.michigansthumb.com/news/article/data-center-discussion-draws-225-people-stronach-22252989.php",
+      "domain": "michigansthumb.com",
+      "title": "Data center discussion draws more than 225 people to Stronach Township",
+      "url": "https://www.michigansthumb.com/news/article/data-center-discussion-draws-225-people-stronach-22252989.php",
+      "published_at": "2026-05-13T06:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://s.hdnux.com/photos/01/66/20/03/30998771/3/rawImage.jpg",
+      "matched_keywords": [
+        "bottled water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "michigansthumb.com"
+      ]
+    },
+    {
+      "id": "https://www.journalgazette.net/local/trial-for-pikes-pub-attack-suspects-rescheduled-for-december/article_dd150697-5c94-45d0-b012-ea18869ebbb6.html",
+      "domain": "journalgazette.net",
+      "title": "Trial for Pikes Pub attack suspects rescheduled for December",
+      "url": "https://www.journalgazette.net/local/trial-for-pikes-pub-attack-suspects-rescheduled-for-december/article_dd150697-5c94-45d0-b012-ea18869ebbb6.html",
+      "published_at": "2026-05-13T05:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://bloximages.chicago2.vip.townnews.com/journalgazette.net/content/tncms/assets/v3/editorial/d/d1/dd150697-5c94-45d0-b012-ea18869ebbb6/6a0397f02c46b.preview.jpg?crop=1200%2C630%2C0%2C22",
+      "matched_keywords": [
+        "water softener"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "journalgazette.net"
+      ]
+    },
+    {
+      "id": "https://www.13wmaz.com/article/news/local/forsyth-monroe/black-oily-substance-appears-in-high-falls-lake-frustrating-residents/93-ecea57c4-8634-4d64-a0f0-6a4fdde14298",
+      "domain": "13wmaz.com",
+      "title": "Black oily substance appears in High Falls Lake for 2nd time this year , frustrating residents",
+      "url": "https://www.13wmaz.com/article/news/local/forsyth-monroe/black-oily-substance-appears-in-high-falls-lake-frustrating-residents/93-ecea57c4-8634-4d64-a0f0-6a4fdde14298",
+      "published_at": "2026-05-13T04:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://media.13wmaz.com/assets/WMAZ/images/d39d1767-99be-4348-9ee2-4fe5ce3bdca4/20260512T201949/d39d1767-99be-4348-9ee2-4fe5ce3bdca4_1140x641.jpg",
+      "matched_keywords": [
+        "bottled water"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "13wmaz.com"
+      ]
+    },
     {
       "id": "https://www.fox13now.com/news/utah-drought/are-car-washes-wasting-water-during-drought-restrictions-experts-say-its-more-complicated-than-it-looks",
       "domain": "fox13now.com",
@@ -55,23 +242,6 @@
       ]
     },
     {
-      "id": "https://westchester.news12.com/turf-battle-in-hastings-parents-challenge-school-over-pfas-concerns",
-      "domain": "westchester.news12.com",
-      "title": "News 12 | Westchester | Turf Battle In Hastings Parents Challenge School Over Pfas Concerns",
-      "url": "https://westchester.news12.com/turf-battle-in-hastings-parents-challenge-school-over-pfas-concerns",
-      "published_at": "2026-05-13T03:00:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://images-cf.news12static.com/3kqcuzntcg31/6DtfSKxZc25EDXDdAIjNPF/ad6a170bc3b1afd8ec9b32e7537b6656/9dc6ab50-545a-4af3-ac0b-5ce84c0c7260.jpg",
-      "matched_keywords": [
-        "forever chemicals"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "westchester.news12.com"
-      ]
-    },
-    {
       "id": "https://www.naturalnews.com/2026-05-12-ai-expansion-raises-alarm-over-pfas-pollution.html",
       "domain": "naturalnews.com",
       "title": "AI Expansion Raises Alarm Over PFAS Pollution Near Data Centers , Herbicide Facilities \u2013 NaturalNews . com",
@@ -86,6 +256,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "naturalnews.com"
+      ]
+    },
+    {
+      "id": "https://westchester.news12.com/turf-battle-in-hastings-parents-challenge-school-over-pfas-concerns",
+      "domain": "westchester.news12.com",
+      "title": "News 12 | Westchester | Turf Battle In Hastings Parents Challenge School Over Pfas Concerns",
+      "url": "https://westchester.news12.com/turf-battle-in-hastings-parents-challenge-school-over-pfas-concerns",
+      "published_at": "2026-05-13T03:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://images-cf.news12static.com/3kqcuzntcg31/6DtfSKxZc25EDXDdAIjNPF/ad6a170bc3b1afd8ec9b32e7537b6656/9dc6ab50-545a-4af3-ac0b-5ce84c0c7260.jpg",
+      "matched_keywords": [
+        "forever chemicals"
+      ],
+      "syndicated_count": 1,
+      "syndicated_domains": [
+        "westchester.news12.com"
       ]
     },
     {
@@ -1696,6 +1883,23 @@
       ]
     },
     {
+      "id": "https://www.progressive-charlestown.com/search?updated-max=2026-05-07T19:07:00-04:00&max-results=15",
+      "domain": "progressive-charlestown.com",
+      "title": "Progressive Charlestown",
+      "url": "https://www.progressive-charlestown.com/search?updated-max=2026-05-07T19:07:00-04:00&max-results=15",
+      "published_at": "2026-05-10T06:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "forever chemicals"
+      ],
+      "syndicated_count": 2,
+      "syndicated_domains": [
+        "progressive-charlestown.com"
+      ]
+    },
+    {
       "id": "https://www.yumasun.com/news/lines-county-never-had-authority-over-biosolids-operation/article_994b2e7b-156b-446b-8ab3-18358a20448d.html",
       "domain": "yumasun.com",
       "title": "Lines : County never had authority over biosolids operation",
@@ -2379,6 +2583,23 @@
       "syndicated_count": 1,
       "syndicated_domains": [
         "twis.org"
+      ]
+    },
+    {
+      "id": "https://www.mariettatimes.com/news/local-news/2026/05/local-events-403/",
+      "domain": "mariettatimes.com",
+      "title": "Local events | News , Sports , Jobs - Marietta Times",
+      "url": "https://www.mariettatimes.com/news/local-news/2026/05/local-events-403/",
+      "published_at": "2026-05-08T08:00:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "",
+      "matched_keywords": [
+        "bottled water"
+      ],
+      "syndicated_count": 2,
+      "syndicated_domains": [
+        "mariettatimes.com"
       ]
     },
     {
@@ -3436,266 +3657,45 @@
       ]
     },
     {
-      "id": "https://www.foodnavigator-usa.com/Article/2026/05/06/delta-snack-cuts-expose-the-death-of-free-airline-food-and-drink/",
-      "domain": "foodnavigator-usa.com",
-      "title": "Delta snack cuts expose the death of free airline food and drink",
-      "url": "https://www.foodnavigator-usa.com/Article/2026/05/06/delta-snack-cuts-expose-the-death-of-free-airline-food-and-drink/",
+      "id": "https://www.orlandosentinel.com/2026/05/06/uc-irvine-study-reveals-potential-link-between-forever-chemicals-and-childhood-leukemia/",
+      "domain": "orlandosentinel.com",
+      "title": "Study reveals potential link between  forever chemical and childhood leukemia \u2013 Orlando Sentinel",
+      "url": "https://www.orlandosentinel.com/2026/05/06/uc-irvine-study-reveals-potential-link-between-forever-chemicals-and-childhood-leukemia/",
+      "published_at": "2026-05-06T17:15:00+00:00",
+      "language": "English",
+      "source_country": "United States",
+      "thumbnail": "https://www.orlandosentinel.com/wp-content/uploads/2026/05/Be_Well-Older_Moms_19553.jpg",
+      "matched_keywords": [
+        "forever chemicals"
+      ],
+      "syndicated_count": 2,
+      "syndicated_domains": [
+        "mcall.com",
+        "orlandosentinel.com"
+      ]
+    },
+    {
+      "id": "https://www.yakimaherald.com/news/nation_and_world/nation/georgia-officials-knew-chemicals-from-carpet-mills-were-polluting-local-water-the-people-did-not/article_4dcd4f8e-6456-5ea8-9e75-b271ec067941.html",
+      "domain": "yakimaherald.com",
+      "title": "Georgia officials knew chemicals from carpet mills were polluting local water . The people did not",
+      "url": "https://www.yakimaherald.com/news/nation_and_world/nation/georgia-officials-knew-chemicals-from-carpet-mills-were-polluting-local-water-the-people-did-not/article_4dcd4f8e-6456-5ea8-9e75-b271ec067941.html",
       "published_at": "2026-05-06T16:45:00+00:00",
       "language": "English",
       "source_country": "United States",
-      "thumbnail": "https://www.foodnavigator-usa.com/resizer/v2/FJEAG46MTZFPNAK67NIOTERP4U.jpg?auth=37a610381e8b8540e030cd19c6ea2146202984f039f308ee0e301794a79784f1&smart=true",
-      "matched_keywords": [
-        "bottled water"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "foodnavigator-usa.com"
-      ]
-    },
-    {
-      "id": "https://www.cleveland19.com/2026/05/06/cleveland-browns-news-rumors-050626-skys-limit/",
-      "domain": "cleveland19.com",
-      "title": "Cleveland Browns News and Rumors 05 / 06 / 26 : The Sky The Limit",
-      "url": "https://www.cleveland19.com/2026/05/06/cleveland-browns-news-rumors-050626-skys-limit/",
-      "published_at": "2026-05-06T16:00:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://gray-woio-prod.gtv-cdn.com/resizer/v2/XH2PBVET5FEIRMIFO5YTFMDYFI.jpg?auth=7aa9d26bb49d3556839458de7b7d0f45b13ae66ebbe221bc356a0e0cea0c3312&smart=true",
-      "matched_keywords": [
-        "microplastics"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "cleveland19.com"
-      ]
-    },
-    {
-      "id": "https://www.klcc.org/human-interest/2026-05-06/klcc-oregon-ready-answering-your-questions-about-water-sanitation-storing-supplies-in-small-spaces-and-more",
-      "domain": "klcc.org",
-      "title": "KLCC Oregon Ready : Answering your questions about water sanitation , storing supplies in small spaces , and more",
-      "url": "https://www.klcc.org/human-interest/2026-05-06/klcc-oregon-ready-answering-your-questions-about-water-sanitation-storing-supplies-in-small-spaces-and-more",
-      "published_at": "2026-05-06T15:15:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "http://npr-brightspot.s3.amazonaws.com/0b/08/91c0e22f47e791a86ded01e10b68/img-0503.JPG",
-      "matched_keywords": [
-        "bottled water"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "klcc.org"
-      ]
-    },
-    {
-      "id": "https://www.mainlinemedianews.com/2026/05/06/uc-irvine-study-reveals-potential-link-between-forever-chemicals-and-childhood-leukemia/",
-      "domain": "mainlinemedianews.com",
-      "title": "Study reveals potential link between  forever chemical and childhood leukemia \u2013 Mainline Media News",
-      "url": "https://www.mainlinemedianews.com/2026/05/06/uc-irvine-study-reveals-potential-link-between-forever-chemicals-and-childhood-leukemia/",
-      "published_at": "2026-05-06T14:45:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://www.mainlinemedianews.com/wp-content/uploads/2026/05/Be_Well-Older_Moms_19553.jpg",
-      "matched_keywords": [
-        "forever chemicals"
-      ],
-      "syndicated_count": 6,
-      "syndicated_domains": [
-        "chicoer.com",
-        "greeleytribune.com",
-        "mainlinemedianews.com",
-        "mcall.com",
-        "orlandosentinel.com",
-        "pressdemocrat.com"
-      ]
-    },
-    {
-      "id": "https://grist.org/sponsored/rural-north-carolina-fights-back-against-pfas-contamination-ejcan/",
-      "domain": "grist.org",
-      "title": "Rural North Carolina fights back against PFAS contamination",
-      "url": "https://grist.org/sponsored/rural-north-carolina-fights-back-against-pfas-contamination-ejcan/",
-      "published_at": "2026-05-06T14:45:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://grist.org/wp-content/uploads/2026/05/Landfill-Featured-Cornell.png?quality=75&strip=all",
-      "matched_keywords": [
-        "bottled water",
-        "forever chemicals",
-        "well water testing"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "grist.org"
-      ]
-    },
-    {
-      "id": "https://www.almanacnews.com/calmatters/2026/05/06/should-this-water-desalination-project-be-linked-to-a-nuclear-plant/",
-      "domain": "almanacnews.com",
-      "title": "Should this water desalination project be linked to a nuclear plant ? ",
-      "url": "https://www.almanacnews.com/calmatters/2026/05/06/should-this-water-desalination-project-be-linked-to-a-nuclear-plant/",
-      "published_at": "2026-05-06T13:15:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "",
-      "matched_keywords": [
-        "reverse osmosis"
-      ],
-      "syndicated_count": 3,
-      "syndicated_domains": [
-        "almanacnews.com",
-        "paloaltoonline.com",
-        "pleasantonweekly.com"
-      ]
-    },
-    {
-      "id": "https://www.advocate-news.com/2025/10/21/anti-science-movement/",
-      "domain": "advocate-news.com",
-      "title": "Anti - science bills hit statehouses , stripping public health protections",
-      "url": "https://www.advocate-news.com/2025/10/21/anti-science-movement/",
-      "published_at": "2026-05-06T12:00:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://www.advocate-news.com/wp-content/uploads/2025/10/Anti-Science_Movement_51901-1.jpg",
-      "matched_keywords": [
-        "fluoride in water"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "advocate-news.com"
-      ]
-    },
-    {
-      "id": "https://ktar.com/national-news/georgia-officials-knew-chemicals-from-carpet-mills-were-polluting-local-water-the-people-did-not/5858433/",
-      "domain": "ktar.com",
-      "title": "Georgia officials knew chemicals from carpet mills were polluting local water . The people did not",
-      "url": "https://ktar.com/national-news/georgia-officials-knew-chemicals-from-carpet-mills-were-polluting-local-water-the-people-did-not/5858433/",
-      "published_at": "2026-05-06T11:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://ktar.com/wp-content/uploads/2026/05/PFAS2-Forever_Stained_25953.jpg",
+      "thumbnail": "https://bloximages.newyork1.vip.townnews.com/yakimaherald.com/content/tncms/assets/v3/editorial/e/44/e44411b8-51a8-5666-bff8-26c8a3a4d662/69fb1fc514995.image.jpg?crop=1763%2C926%2C0%2C124",
       "matched_keywords": [
         "bottled water",
         "forever chemicals"
       ],
-      "syndicated_count": 13,
+      "syndicated_count": 7,
       "syndicated_domains": [
         "11alive.com",
         "bostonherald.com",
         "dailycamera.com",
-        "goskagit.com",
-        "ktar.com",
-        "moultonadvertiser.com",
         "northwestgeorgianews.com",
-        "nvdaily.com",
         "timesfreepress.com",
         "whittierdailynews.com",
-        "wral.com",
-        "yahoo.com",
         "yakimaherald.com"
-      ]
-    },
-    {
-      "id": "https://ktar.com/national-news/takeaways-from-investigation-showing-georgia-officials-knew-carpet-mills-polluted-local-water/5858435/",
-      "domain": "ktar.com",
-      "title": "Takeaways from investigation showing Georgia officials knew carpet mills polluted local water",
-      "url": "https://ktar.com/national-news/takeaways-from-investigation-showing-georgia-officials-knew-carpet-mills-polluted-local-water/5858435/",
-      "published_at": "2026-05-06T11:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://ktar.com/wp-content/uploads/2026/05/PFAS2-Forever_Stained__372_.jpg",
-      "matched_keywords": [
-        "bottled water",
-        "forever chemicals"
-      ],
-      "syndicated_count": 2,
-      "syndicated_domains": [
-        "ktar.com",
-        "wral.com"
-      ]
-    },
-    {
-      "id": "https://www.heraldnet.com/2026/05/06/burke-and-they-vote/",
-      "domain": "heraldnet.com",
-      "title": "Burke : \u2026 And they vote ?! | HeraldNet . com",
-      "url": "https://www.heraldnet.com/2026/05/06/burke-and-they-vote/",
-      "published_at": "2026-05-06T11:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "",
-      "matched_keywords": [
-        "bottled water"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "heraldnet.com"
-      ]
-    },
-    {
-      "id": "https://www.gdnonline.com:443/Details/1393824/EtihadWE-signs-EPC-contract-with-NMDC-for-Fujairah-desal-plant-",
-      "domain": "gdnonline.com",
-      "title": "UAE Business : EtihadWE signs EPC contract with NMDC for Fujairah desal plant",
-      "url": "https://www.gdnonline.com:443/Details/1393824/EtihadWE-signs-EPC-contract-with-NMDC-for-Fujairah-desal-plant-",
-      "published_at": "2026-05-06T09:00:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://www.gdnonline.com/gdnimages/20260506%5CTA_20260506103626.jpg",
-      "matched_keywords": [
-        "reverse osmosis"
-      ],
-      "syndicated_count": 2,
-      "syndicated_domains": [
-        "gdnonline.com"
-      ]
-    },
-    {
-      "id": "https://www.progressive-charlestown.com/search?updated-max=2026-05-03T23:55:00-04:00&max-results=15",
-      "domain": "progressive-charlestown.com",
-      "title": "Progressive Charlestown",
-      "url": "https://www.progressive-charlestown.com/search?updated-max=2026-05-03T23:55:00-04:00&max-results=15",
-      "published_at": "2026-05-06T08:45:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "",
-      "matched_keywords": [
-        "bottled water",
-        "forever chemicals"
-      ],
-      "syndicated_count": 3,
-      "syndicated_domains": [
-        "progressive-charlestown.com"
-      ]
-    },
-    {
-      "id": "https://www.mariettatimes.com/news/local-news/2026/05/local-events-401/",
-      "domain": "mariettatimes.com",
-      "title": "Local events | News , Sports , Jobs - Marietta Times",
-      "url": "https://www.mariettatimes.com/news/local-news/2026/05/local-events-401/",
-      "published_at": "2026-05-06T08:30:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "",
-      "matched_keywords": [
-        "bottled water"
-      ],
-      "syndicated_count": 3,
-      "syndicated_domains": [
-        "mariettatimes.com"
-      ]
-    },
-    {
-      "id": "https://www.azocleantech.com/news.aspx?newsID=36288",
-      "domain": "azocleantech.com",
-      "title": "Tree Bark Could Help Clean Water and Air",
-      "url": "https://www.azocleantech.com/news.aspx?newsID=36288",
-      "published_at": "2026-05-06T04:45:00+00:00",
-      "language": "English",
-      "source_country": "United States",
-      "thumbnail": "https://www.azocleantech.com/images/news/ImageForNews_36288_17780391451514022.jpg",
-      "matched_keywords": [
-        "water filter"
-      ],
-      "syndicated_count": 1,
-      "syndicated_domains": [
-        "azocleantech.com"
       ]
     }
   ]
