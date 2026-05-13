@@ -1,11 +1,8 @@
 name: Refresh news mentions
 
 on:
-  # Scheduled refresh is disabled — news is refreshed on-demand via the
-  # "refresh the news" command in a Claude Code session (runs fetch +
-  # classification together, keeping scores and data in sync).
-  # schedule:
-  #   - cron: "0 8 * * *"
+  schedule:
+    - cron: "0 8 * * *"  # 08:00 UTC daily (before YouTube at 09:00)
   workflow_dispatch:
 
 permissions:
@@ -28,15 +25,18 @@ jobs:
       - name: Fetch news mentions
         run: python scripts/fetch_news.py
 
+      - name: Classify news mentions
+        run: python scripts/classify_news.py
+
       - name: Commit refreshed data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news_mentions.json
+          git add data/news_mentions.json data/news_scored.json
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "chore: refresh news mentions"
+            git commit -m "chore: refresh news mentions and scores"
             git pull --rebase -X theirs origin main
             git push
           fi

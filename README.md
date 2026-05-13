@@ -11,9 +11,9 @@ committed files — no live API calls at view time.
 
 ```
 GitHub Actions
-  ├─ manual-only  SerpApi Google Trends    →  data/trends.json
-  ├─ 08:00 UTC    GDELT 2.0 news           →  data/news_mentions.json
-  └─ 09:00 UTC    YouTube Data API v3      →  data/youtube_mentions.json
+  ├─ Mon 06:00 UTC  SerpApi Google Trends    →  data/trends.json
+  ├─ 08:00 UTC      GDELT 2.0 news + scores  →  data/news_{mentions,scored}.json
+  └─ 09:00 UTC      YouTube Data API v3      →  data/youtube_mentions.json
       │
       │ commits to main
       ▼
@@ -25,11 +25,11 @@ script-app creation for most users, and unauthenticated public-JSON
 requests are IP-blocked from GitHub Actions runners. Revisit via a paid
 scraper (Apify, ~$30–50/mo) if Reddit coverage becomes a priority.
 
-**Why trends is manual-only:** SerpApi's free tier is 100 searches/month; a
-daily cron would burn ~480. Trigger the `Refresh Google Trends data` workflow
-manually when you want fresh trend data (uses ~16 credits per run, so ~5-6
-manual refreshes/month fit in the free tier). Re-enable the daily schedule
-in `.github/workflows/refresh-trends.yml` once on a paid SerpApi plan.
+**Why trends is weekly, not daily:** SerpApi's free tier is 100
+searches/month and each trends run uses ~16 credits. A weekly Monday
+cron uses ~64-80/mo and stays inside the free tier; daily would burn
+~480. Move to a daily schedule in `.github/workflows/refresh-trends.yml`
+once on a paid SerpApi plan.
 
 Required repository secrets:
 - `SERPAPI_KEY` — https://serpapi.com/manage-api-key
@@ -44,7 +44,7 @@ Files:
 - `scripts/fetch_trends.py` — SerpApi runner
 - `scripts/fetch_youtube.py` — YouTube Data API runner
 - `scripts/fetch_news.py` — GDELT 2.0 runner (no credentials needed)
-- `.github/workflows/refresh-*.yml` — trends (manual) + news + youtube (daily crons)
+- `.github/workflows/refresh-*.yml` — trends (weekly cron) + news + youtube (daily crons)
 - `requirements.txt` — runtime deps for Streamlit Cloud
 - `requirements-fetch.txt` — deps shared across fetch jobs
 

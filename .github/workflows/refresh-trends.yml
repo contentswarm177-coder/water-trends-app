@@ -1,11 +1,10 @@
 name: Refresh Google Trends data
 
 on:
-  # Scheduled refresh is disabled to preserve SerpApi free-tier quota
-  # (100 searches/month; daily would use ~480). Re-enable by uncommenting
-  # the schedule block below once on a paid SerpApi plan.
-  # schedule:
-  #   - cron: "0 6 * * *"  # 06:00 UTC daily
+  # Weekly cron fits inside SerpApi free tier (~64-80 of 100 credits/mo).
+  # Move to a daily schedule only on a paid SerpApi plan.
+  schedule:
+    - cron: "0 6 * * 1"  # 06:00 UTC Mondays
   workflow_dispatch:
 
 permissions:
@@ -39,5 +38,6 @@ jobs:
             echo "No changes to commit."
           else
             git commit -m "chore: refresh trends snapshot"
+            git pull --rebase -X theirs origin main
             git push
           fi
